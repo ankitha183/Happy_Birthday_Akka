@@ -474,6 +474,72 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 
+var CONFIG = {
+
+  candleSong: "",
+
+  heroBg: "",
+
+  memories: {
+    sleepy: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/sleepy.mp4"
+    ],
+    trips: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/trips.mp4"
+    ],
+    forever: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/forever%20moments.mp4"
+    ],
+    celebrations: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/celebrations.mp4"
+    ],
+    posing: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Poser.mp4"
+    ],
+    firstmeet: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/first%20meet.mp4"
+    ],
+    supersinger: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/singer.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/singer1.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/singer2.mp4"
+    ],
+    vlogger: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/vlogger.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/vlogger1.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/vlogger3.mp4"
+    ],
+    ustogether: [
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
+      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
+    ],
+    family: []
+  },
+
+  songs: {
+    sleepy:       "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Koyila(KoshalWorld%20(mp3cut.net).mp3",
+    trips:        "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
+    forever:      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
+    celebrations: "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
+    posing:       "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Aval-Ulaghazhagi%20(mp3cut.net).mp3",
+    firstmeet:    "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Rathamaarey.mp3",
+    supersinger:  "",
+    vlogger:      "",
+    ustogether:   "",
+    family:       ""
+  }
+
+};
+
+
 (function(){
   var PASS = '1992';
   var pin = '';
@@ -977,6 +1043,46 @@ document.addEventListener('DOMContentLoaded', function(){
       panel.classList.remove('show');
     }
   });
+
+})();
+
+
+/* ── Apply CONFIG on load ── */
+(function applyConfig(){
+
+  if(CONFIG.candleSong) candleSongUrl = CONFIG.candleSong;
+
+  if(CONFIG.heroBg){
+    var img = document.getElementById('hero-bg-img');
+    var bgDiv = document.getElementById('hero-bg');
+    var ov = document.getElementById('hero-overlay');
+    if(img){ img.src = CONFIG.heroBg; img.style.display = 'block'; }
+    if(bgDiv) bgDiv.style.display = 'none';
+    if(ov) ov.style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)';
+  }
+
+  Object.keys(CONFIG.memories).forEach(function(catId){
+    var urls = CONFIG.memories[catId];
+    if(!urls || !urls.length) return;
+    urls.forEach(function(url){
+      if(!url) return;
+      var isVideo = /\.(mp4|mov|webm|ogg)$/i.test(url);
+      if(!mediaStore[catId]) mediaStore[catId] = [];
+      mediaStore[catId].push({url: url, isVideo: isVideo});
+    });
+    rebuildSlides(catId);
+  });
+
+  Object.keys(CONFIG.songs).forEach(function(catId){
+    var url = CONFIG.songs[catId];
+    if(!url) return;
+    songUrls[catId] = url;
+    songNames[catId] = catId;
+    var dot = document.getElementById('sdot-' + catId);
+    if(dot) dot.style.display = 'inline';
+  });
+
+  if(typeof buildSongList === 'function') buildSongList();
 
 })();
 
