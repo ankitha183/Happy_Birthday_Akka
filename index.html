@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/ankitha.samineni/Downloads/HappyBirthday_Akka%20(1).html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -189,22 +190,9 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 /* CONFETTI */
 @keyframes cffall{0%{transform:translateY(-30px) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .cf{position:fixed;pointer-events:none;animation:cffall linear infinite;z-index:9000}
-
-/* LOADING SPINNER */
-.loading{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:5000;align-items:center;justify-content:center;flex-direction:column;gap:16px}
-.loading.show{display:flex}
-.spinner{width:50px;height:50px;border:4px solid #333;border-top-color:#E50914;border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loading-text{font-size:14px;color:#aaa}
 </style>
 </head>
 <body>
-
-<!-- LOADING INDICATOR -->
-<div class="loading" id="loading">
-  <div class="spinner"></div>
-  <div class="loading-text">Loading your memories...</div>
-</div>
 
 <!-- NOW PLAYING -->
 <div class="now-playing" id="np">
@@ -227,13 +215,15 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 </div>
 
 <!-- CATEGORY MODAL -->
-<div class="modal-ov" id="modal" style="display:none;">
+<div class="modal-ov" id="modal">
   <div class="modal">
-    <div class="modal-ttl" id="m-title">Manage Media From GitHub</div>
-    <div class="modal-sub" id="m-sub">Configure your GitHub repository settings</div>
+    <div class="modal-ttl" id="m-title">File 10 of 10 — which memory?</div>
+    <div class="modal-sub" id="m-sub">WhatsApp Video 2026-05-31 at 23.30.08.mp4</div>
     <div class="modal-err" id="m-err"></div>
-    <div id="modal-content">
-      <p style="color:#888;font-size:12px;margin-bottom:16px;">Media files are loaded from your GitHub repository. Update the configuration to point to your media files.</p>
+    <div class="cat-grid" id="cat-grid"><button class="cat-btn"><span class="ci">😴</span><span>Sleepy Queen</span></button><button class="cat-btn"><span class="ci">✈️</span><span>Our Trips</span></button><button class="cat-btn"><span class="ci">🫂</span><span>Forever Moments</span></button><button class="cat-btn"><span class="ci">🥂</span><span>Celebrations</span></button><button class="cat-btn"><span class="ci">💅</span><span>Posing Queen</span></button><button class="cat-btn"><span class="ci">🌟</span><span>Our First Meet</span></button><button class="cat-btn"><span class="ci">🎤</span><span>Super Singer</span></button><button class="cat-btn"><span class="ci">🎥</span><span>The Vlogger</span></button><button class="cat-btn sel"><span class="ci">🎬</span><span>Us Together</span></button></div>
+    <div class="modal-acts">
+      <button class="m-cancel" id="m-cancel">Cancel</button>
+      <button class="m-ok" id="m-ok">Add ✓</button>
     </div>
   </div>
 </div>
@@ -242,11 +232,12 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <button class="setup-fab" id="setup-fab">⚙ Setup</button>
 <div class="setup-panel" id="setup-panel">
   <div class="setup-panel-title">⚙ Setup Mode</div>
-  <button class="setup-item" id="setup-config">🔧 Configure GitHub Repo</button>
+  <button class="setup-item" id="setup-upload">📁 Upload Photos &amp; Videos</button>
   <button class="setup-item" id="setup-songs">🎵 Manage Songs</button>
   <button class="setup-item" id="setup-candle-song">🎵 Set Candle Page Song</button>
   <button class="setup-item" id="setup-bg">🖼 Set Background Photo</button>
 </div>
+
 
 <!-- BOUQUET OVERLAY -->
 <div class="bouquet-ov" id="bouquet-ov">
@@ -261,13 +252,14 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 </div>
 
 <!-- FILE INPUTS -->
+<input type="file" id="fi-media" multiple="" accept="image/*,video/*" style="display:none">
 <input type="file" id="fi-song" accept="audio/*" style="display:none">
 <input type="file" id="fi-bg" accept="image/*" style="display:none">
 <input type="file" id="fi-candle-song" accept="audio/*" style="display:none">
 
 <!-- ═══════════ SCREEN 1: LOGIN ═══════════ -->
 <div id="s-login" class="screen">
-  <div class="nf-logo">LOVEFLIX</div>
+  <div class="nf-logo">BIRTHFLIX</div>
   <div class="nf-sub">Unlimited memories · Just for Akka</div>
   <div class="lock-box">
     <h2>Enter Passkey</h2>
@@ -384,7 +376,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 </div>
 
 <!-- ═══════════ SCREEN 4: MAIN ═══════════ -->
-<div id="s-main" class="screen">
+<div id="s-main" class="screen active">
   <div class="nav">
     <span class="nav-logo">BIRTHFLIX</span>
     <button class="nav-btn" id="btn-switch">← Switch Profile</button>
@@ -393,8 +385,8 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <!-- HERO -->
   <div class="hero" id="hero-section">
     <div class="hero-bg" id="hero-bg" style="display: none;"></div>
-    <img class="hero-bg-img" id="hero-bg-img" src="" alt="" style="display: none;">
-    <div class="hero-overlay" id="hero-overlay"></div>
+    <img class="hero-bg-img" id="hero-bg-img" src="blob:null/f051e041-ccc7-46b8-841c-8d09f69c4b17" alt="" style="display: block;">
+    <div class="hero-overlay" id="hero-overlay" style="background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.25) 70%), linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 60%);"></div>
     <div class="cake-hero">
       <svg width="185" height="205" viewBox="0 0 185 205" fill="none">
         <rect x="38" y="48" width="10" height="30" rx="3" fill="#ff6b9d"></rect>
@@ -439,16 +431,58 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <!-- MEMORY CARDS -->
   <div class="mem-section" id="mem-row">
     <p class="sec-title">📸 Our Memories Together</p>
-    <div class="cards-wrap" id="cards-container">
-      <!-- Cards generated by JavaScript -->
+    <div class="cards-wrap">
+      <div class="mcard" data-cat="sleepy" data-label="Sleepy Queen" style="background:linear-gradient(135deg,#0d0d2a,#1a1060)"><video src="blob:null/a99acdd9-5a91-4c30-8998-ac966f0877f1" loop="" playsinline="" class="mcard-slide show"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">😴</span><span class="mcard-lbl">Sleepy Queen</span></div>
+        <span class="mcard-badge">Classic</span><span class="mcard-sdot" id="sdot-sleepy">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="trips" data-label="Our Trips" style="background:linear-gradient(135deg,#0a1a2e,#0e3a5c)"><img src="blob:null/74ef3672-ff7a-4367-b146-5f12badd9985" alt="" class="mcard-slide show">
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">✈️</span><span class="mcard-lbl">Our Trips</span></div>
+        <span class="mcard-badge">Series</span><span class="mcard-sdot" id="sdot-trips">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="forever" data-label="Forever Moments" style="background:linear-gradient(135deg,#2a0a1a,#6b1040)"><video src="blob:null/312cb6dc-c41d-4ae4-afb6-171ede5ab4cb" loop="" playsinline="" class="mcard-slide show"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">🫂</span><span class="mcard-lbl">Forever Moments</span></div>
+        <span class="mcard-badge">Special</span><span class="mcard-sdot" id="sdot-forever">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="celebrations" data-label="Celebrations" style="background:linear-gradient(135deg,#1a1000,#4a3000)"><video src="blob:null/ca5bde34-d681-46fe-8b45-0e70a6a942f9" loop="" playsinline="" class="mcard-slide show"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">🥂</span><span class="mcard-lbl">Celebrations</span></div>
+        <span class="mcard-badge">Highlights</span><span class="mcard-sdot" id="sdot-celebrations">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="posing" data-label="Posing Queen" style="background:linear-gradient(135deg,#2a0a2a,#6b0a6b)"><video src="blob:null/8ce8f160-5777-4f91-b1c4-078db566ac8a" loop="" playsinline="" class="mcard-slide show"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">💅</span><span class="mcard-lbl">Posing Queen</span></div>
+        <span class="mcard-badge">Icon</span><span class="mcard-sdot" id="sdot-posing">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="firstmeet" data-label="Our First Meet" style="background:linear-gradient(135deg,#0a2a1a,#0a5a2a)"><video src="blob:null/64ad6334-f44e-481f-b171-8f5febd801ab" loop="" playsinline="" class="mcard-slide show"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">🌟</span><span class="mcard-lbl">Our First Meet</span></div>
+        <span class="mcard-badge">Origin</span><span class="mcard-sdot" id="sdot-firstmeet">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="supersinger" data-label="Super Singer" style="background:linear-gradient(135deg,#1a0a2e,#4a1080)"><video src="blob:null/510147ff-9610-495d-98b3-278c071a7a42" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/b85fba77-beca-47f8-8e0b-a40faee13bb4" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/2e15585b-84f5-4ab3-9b48-778c5cf665cf" loop="" playsinline="" class="mcard-slide show"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">🎤</span><span class="mcard-lbl">Super Singer</span></div>
+        <span class="mcard-badge">Star</span><span class="mcard-sdot" id="sdot-supersinger">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="vlogger" data-label="The Vlogger" style="background:linear-gradient(135deg,#0a0a1a,#1a0a3a)"><video src="blob:null/436e66cf-28c3-466d-98fb-06deb71b71b1" loop="" playsinline="" class="mcard-slide show"></video><video src="blob:null/6a5506bc-4a6d-40e3-9836-0cf2aa581bfe" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/f6529801-c7cc-4e65-9699-c9cb0fe4836d" loop="" playsinline="" class="mcard-slide"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">🎥</span><span class="mcard-lbl">The Vlogger</span></div>
+        <span class="mcard-badge">Director</span><span class="mcard-sdot" id="sdot-vlogger">🎵</span><div class="mcard-ov">▶ Open</div>
+      </div>
+      <div class="mcard" data-cat="ustogether" data-label="Us Together" style="background:linear-gradient(135deg,#1a0a0a,#4a1a1a)"><video src="blob:null/246e1c0e-1330-465d-b185-5f2dfaea4523" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/7999c435-18c0-4dab-b2c4-a38594553ac0" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/8ac15789-94ab-4fc8-bfaf-195667a987b3" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/d7ddddb7-a0ea-4795-8eff-d3453d77bcb1" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/503b19c3-af36-4e72-a234-c6de7f1a1574" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/19c6d161-22f5-44d9-945b-bcc0ac05955c" loop="" playsinline="" class="mcard-slide show"></video><video src="blob:null/c8a73883-ade9-49f2-bb7e-8d3d84a39632" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/2c893379-345a-45b5-9687-66adc640e326" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/9a6bd91d-32bb-403a-94c8-31fcb632bd53" loop="" playsinline="" class="mcard-slide"></video><video src="blob:null/f14a873f-702c-4c43-b165-c42f6d4ccec9" loop="" playsinline="" class="mcard-slide"></video>
+        <div class="mcard-inner" style="opacity: 0;"><span class="mcard-icon">🎬</span><span class="mcard-lbl">Us Together</span></div>
+        <span class="mcard-badge">Our Videos</span><span class="mcard-sdot" id="sdot-ustogether">🎵</span><div class="mcard-ov">▶ Play</div>
+      </div>
     </div>
+  </div>
+
+  <!-- UPLOAD PANEL (hidden by default, shown via setup) -->
+  <div class="panel" id="panel-upload" style="display: none;">
+    <h4>🎞 Add Your Photos &amp; Videos</h4>
+    <p>Select files and assign them to a memory — they show as slideshow on the card and play in full when opened</p>
+    <button class="red-btn" id="btn-upload">📁 Choose Photos &amp; Videos</button>
   </div>
 
   <!-- SONG PANEL (hidden by default, shown via setup) -->
   <div class="panel" id="panel-songs" style="display:none">
     <h4>🎵 Add Songs to Each Memory</h4>
     <p>Song plays automatically when that memory card is opened</p>
-    <div id="song-list"></div>
+    <div id="song-list"><div class="song-row"><span class="s-emoji">😴</span><div class="s-info"><div class="s-cat">Sleepy Queen</div><div class="s-file" id="sfn-sleepy">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-sleepy">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">✈️</span><div class="s-info"><div class="s-cat">Our Trips</div><div class="s-file" id="sfn-trips">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-trips">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">🫂</span><div class="s-info"><div class="s-cat">Forever Moments</div><div class="s-file" id="sfn-forever">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-forever">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">🥂</span><div class="s-info"><div class="s-cat">Celebrations</div><div class="s-file" id="sfn-celebrations">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-celebrations">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">💅</span><div class="s-info"><div class="s-cat">Posing Queen</div><div class="s-file" id="sfn-posing">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-posing">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">🌟</span><div class="s-info"><div class="s-cat">Our First Meet</div><div class="s-file" id="sfn-firstmeet">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-firstmeet">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">🎤</span><div class="s-info"><div class="s-cat">Super Singer</div><div class="s-file" id="sfn-supersinger">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-supersinger">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">🎥</span><div class="s-info"><div class="s-cat">The Vlogger</div><div class="s-file" id="sfn-vlogger">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-vlogger">+ Add Song</button></div></div><div class="song-row"><span class="s-emoji">🎬</span><div class="s-info"><div class="s-cat">Us Together</div><div class="s-file" id="sfn-ustogether">No song added yet</div></div><div class="s-btns"><button class="s-btn" id="sadd-ustogether">+ Add Song</button></div></div></div>
   </div>
 
   <div style="height:80px"></div>
@@ -456,19 +490,9 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 
 <script>
 (function(){
-  // ═══ CONFIGURATION ═══
-  // Update these values to point to your GitHub repository
-  var CONFIG = {
-    githubToken: localStorage.getItem('githubToken') || '', // GitHub token for API access
-    mediaPath: localStorage.getItem('mediaPath') || 'media', // Path in repo where media files are stored
-    songsPath: localStorage.getItem('songsPath') || 'songs', // Path in repo where song files are stored
-    owner: localStorage.getItem('repoOwner') || 'ankitha183',
-    repo: localStorage.getItem('repoName') || 'birthflix-akka',
-    branch: localStorage.getItem('repoBranch') || 'main'
-  };
-
   var PASS = '1992';
   var pin = '';
+  var pendingFiles = [], pendingIdx = 0, selectedCat = null;
   var currentAudio = null;
   var songUrls = {}, songNames = {};
   var mediaStore = {};
@@ -478,7 +502,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   var candlesBlown = false;
 
   var CATS = [
-    {id:'sleepy',        label:'Sleeping Beauty',    icon:'😴'},
+    {id:'sleepy',        label:'Sleepy Queen',    icon:'😴'},
     {id:'trips',         label:'Our Trips',        icon:'✈️'},
     {id:'forever',       label:'Forever Moments',  icon:'🫂'},
     {id:'celebrations',  label:'Celebrations',     icon:'🥂'},
@@ -490,89 +514,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   ];
 
   function G(id){ return document.getElementById(id); }
-
-  // ═══ GITHUB API HELPERS ═══
-  function getGitHubRawURL(filePath) {
-    return 'https://raw.githubusercontent.com/' + CONFIG.owner + '/' + CONFIG.repo + '/' + CONFIG.branch + '/' + filePath;
-  }
-
-  function getGitHubAPIHeaders() {
-    var headers = {'Accept': 'application/vnd.github.v3+json'};
-    if(CONFIG.githubToken) headers['Authorization'] = 'token ' + CONFIG.githubToken;
-    return headers;
-  }
-
-  async function fetchGitHubDirectory(path) {
-    try {
-      var url = 'https://api.github.com/repos/' + CONFIG.owner + '/' + CONFIG.repo + '/contents/' + path + '?ref=' + CONFIG.branch;
-      var response = await fetch(url, {headers: getGitHubAPIHeaders()});
-      if(!response.ok) return [];
-      var data = await response.json();
-      return Array.isArray(data) ? data : [];
-    } catch(e) {
-      console.error('Error fetching GitHub directory:', e);
-      return [];
-    }
-  }
-
-  async function loadMediaFromGitHub() {
-    G('loading').classList.add('show');
-    try {
-      var files = await fetchGitHubDirectory(CONFIG.mediaPath);
-      for(var i = 0; i < files.length; i++) {
-        var file = files[i];
-        if(file.type !== 'file') continue;
-        
-        var name = file.name.toLowerCase();
-        var isVideo = /\.(mp4|webm|mov|avi)$/i.test(name);
-        var isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(name);
-        if(!isVideo && !isImage) continue;
-
-        // Try to match file to category by name or folder
-        var catId = inferCategoryFromFilename(file.name);
-        if(!catId) catId = 'ustogether'; // default category
-
-        var rawUrl = getGitHubRawURL(CONFIG.mediaPath + '/' + file.name);
-        if(!mediaStore[catId]) mediaStore[catId] = [];
-        mediaStore[catId].push({
-          url: rawUrl,
-          isVideo: isVideo,
-          name: file.name
-        });
-      }
-      rebuildAllCards();
-    } finally {
-      G('loading').classList.remove('show');
-    }
-  }
-
-  function inferCategoryFromFilename(filename) {
-    filename = filename.toLowerCase();
-    for(var i = 0; i < CATS.length; i++) {
-      if(filename.indexOf(CATS[i].id) !== -1) return CATS[i].id;
-    }
-    return null;
-  }
-
-  async function loadSongsFromGitHub() {
-    try {
-      var files = await fetchGitHubDirectory(CONFIG.songsPath);
-      for(var i = 0; i < files.length; i++) {
-        var file = files[i];
-        if(file.type !== 'file' || !/\.(mp3|m4a|wav|ogg|flac)$/i.test(file.name)) continue;
-
-        var catId = inferCategoryFromFilename(file.name);
-        if(!catId) continue;
-
-        var rawUrl = getGitHubRawURL(CONFIG.songsPath + '/' + file.name);
-        songUrls[catId] = rawUrl;
-        songNames[catId] = file.name.replace(/\.[^.]+$/, '');
-      }
-      buildSongList();
-    } catch(e) {
-      console.error('Error loading songs:', e);
-    }
-  }
 
   /* ── SCREENS ── */
   function showScreen(id){
@@ -600,8 +541,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   }
   function checkPin(){
     if(pin === PASS){
-      showScreen('s-candles');
-      playCandleSong();
+      showScreen('s-candles'); playCandleSong();
     } else {
       G('err').textContent = 'Wrong passkey — try again!';
       pin = '';
@@ -613,6 +553,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   var candleSongUrl = null;
   var candleAudio = null;
 
+  // Play candle background song when candle screen shows
   function playCandleSong(){
     if(!candleSongUrl) return;
     stopCandleAudio();
@@ -629,6 +570,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     if(candlesBlown) return;
     candlesBlown = true;
 
+    // Extinguish flames
     ['f1','f2','f3'].forEach(function(id){
       var g = G(id);
       if(g) g.classList.add('flame-hidden');
@@ -642,12 +584,13 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
       launchConfetti();
     }, 400);
 
+    // After 2s — stop candle song, show bouquet
     setTimeout(function(){
       stopCandleAudio();
-      showScreen('s-candles');
-      playCandleSong();
+      showScreen('s-candles'); playCandleSong(); // keep candle screen dimmed behind bouquet
       G('bouquet-ov').classList.add('show');
       launchConfetti();
+      // Reset candle state
       candlesBlown = false;
       ['f1','f2','f3'].forEach(function(id){
         var g = G(id); if(g) g.classList.remove('flame-hidden');
@@ -666,12 +609,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 
   /* ── PROFILES ── */
   document.querySelectorAll('.profile-pick').forEach(function(p){
-    p.addEventListener('click', function(){
-      showScreen('s-main');
-      launchConfetti();
-      loadMediaFromGitHub();
-      loadSongsFromGitHub();
-    });
+    p.addEventListener('click', function(){ showScreen('s-main'); launchConfetti(); });
   });
   G('btn-switch').addEventListener('click', function(){ stopAudio(); showScreen('s-profile'); });
   G('btn-story').addEventListener('click', function(){ G('mem-row').scrollIntoView({behavior:'smooth'}); });
@@ -712,77 +650,28 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   G('np-stop').addEventListener('click', stopAudio);
 
   /* ── CARD SLIDESHOW ── */
-  function rebuildAllCards(){
-    var container = G('cards-container');
-    container.innerHTML = '';
-    CATS.forEach(function(cat){
-      var items = mediaStore[cat.id] || [];
-      var firstItem = items.length > 0 ? items[0] : null;
-      var bgStyle = 'background:linear-gradient(135deg,#0d0d2a,#1a1060)';
-      if(cat.id === 'trips') bgStyle = 'background:linear-gradient(135deg,#0a1a2e,#0e3a5c)';
-      else if(cat.id === 'forever') bgStyle = 'background:linear-gradient(135deg,#2a0a1a,#6b1040)';
-      else if(cat.id === 'celebrations') bgStyle = 'background:linear-gradient(135deg,#1a1000,#4a3000)';
-      else if(cat.id === 'posing') bgStyle = 'background:linear-gradient(135deg,#2a0a2a,#6b0a6b)';
-      else if(cat.id === 'firstmeet') bgStyle = 'background:linear-gradient(135deg,#0a2a1a,#0a5a2a)';
-      else if(cat.id === 'supersinger') bgStyle = 'background:linear-gradient(135deg,#1a0a2e,#4a1080)';
-      else if(cat.id === 'vlogger') bgStyle = 'background:linear-gradient(135deg,#0a0a1a,#1a0a3a)';
-      else if(cat.id === 'ustogether') bgStyle = 'background:linear-gradient(135deg,#1a0a0a,#4a1a1a)';
-
-      var card = document.createElement('div');
-      card.className = 'mcard';
-      card.setAttribute('data-cat', cat.id);
-      card.setAttribute('data-label', cat.label);
-      card.style.cssText = bgStyle;
-      
-      if(firstItem){
-        var el;
-        if(firstItem.isVideo){
-          el = document.createElement('video');
-          el.src = firstItem.url;
-          el.muted = true;
-          el.loop = true;
-          el.playsInline = true;
-        } else {
-          el = document.createElement('img');
-          el.src = firstItem.url;
-          el.alt = '';
-        }
-        el.className = 'mcard-slide show';
-        card.appendChild(el);
+  function rebuildSlides(catId){
+    var card = document.querySelector('.mcard[data-cat="' + catId + '"]');
+    if(!card) return;
+    card.querySelectorAll('.mcard-slide').forEach(function(e){ e.remove(); });
+    var items = mediaStore[catId] || [];
+    items.forEach(function(item, i){
+      var el;
+      if(item.isVideo){
+        el = document.createElement('video');
+        el.src = item.url; el.muted = true; el.loop = true; el.playsInline = true;
+      } else {
+        el = document.createElement('img');
+        el.src = item.url; el.alt = '';
       }
-
-      var inner = document.createElement('div');
-      inner.className = 'mcard-inner';
-      if(firstItem) inner.style.opacity = '0';
-      inner.innerHTML = '<span class="mcard-icon">' + cat.icon + '</span><span class="mcard-lbl">' + cat.label + '</span>';
-      card.appendChild(inner);
-
-      var badge = document.createElement('span');
-      badge.className = 'mcard-badge';
-      badge.textContent = items.length > 0 ? items.length + ' MEDIA' : 'EMPTY';
-      card.appendChild(badge);
-
-      var sdot = document.createElement('span');
-      sdot.className = 'mcard-sdot';
-      sdot.id = 'sdot-' + cat.id;
-      sdot.textContent = '🎵';
-      if(songUrls[cat.id]) sdot.style.display = 'inline';
-      else sdot.style.display = 'none';
-      card.appendChild(sdot);
-
-      var ov = document.createElement('div');
-      ov.className = 'mcard-ov';
-      ov.textContent = items.length > 0 ? '▶ Open' : '(empty)';
-      card.appendChild(ov);
-
-      card.addEventListener('click', function(){
-        if(items.length > 0) openLB(cat.id, cat.label);
-      });
-
-      container.appendChild(card);
+      el.className = 'mcard-slide' + (i === 0 ? ' show' : '');
+      card.insertBefore(el, card.firstChild);
     });
-
-    CATS.forEach(function(cat){ startSlideshow(cat.id); });
+    if(items.length > 0){
+      var inner = card.querySelector('.mcard-inner');
+      if(inner) inner.style.opacity = '0';
+    }
+    startSlideshow(catId);
   }
 
   function startSlideshow(catId){
@@ -794,7 +683,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
       var card = document.querySelector('.mcard[data-cat="' + catId + '"]');
       if(!card) return;
       var slides = card.querySelectorAll('.mcard-slide');
-      if(slides.length === 0) return;
       slides.forEach(function(s){ s.classList.remove('show'); });
       idx = (idx + 1) % slides.length;
       if(slides[idx]) slides[idx].classList.add('show');
@@ -802,6 +690,12 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   }
 
   /* ── MEMORY CARD CLICK → LIGHTBOX ── */
+  document.querySelectorAll('.mcard').forEach(function(card){
+    card.addEventListener('click', function(){
+      openLB(card.getAttribute('data-cat'), card.getAttribute('data-label'));
+    });
+  });
+
   function openLB(catId, label){
     lbCat = catId; lbIdx = 0;
     G('lb-title').textContent = label;
@@ -817,7 +711,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     if(!items.length){
       var p = document.createElement('p');
       p.style.cssText = 'color:#555;font-size:14px;text-align:center;padding:80px 20px;';
-      p.textContent = 'No photos or videos in this category yet.';
+      p.textContent = 'No photos or videos added yet — use ⚙ Setup to add!';
       wrap.appendChild(p);
       G('lb-count').textContent = '';
       G('lb-prev').disabled = true;
@@ -827,10 +721,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     var item = items[lbIdx];
     if(item.isVideo){
       var v = document.createElement('video');
-      v.src = item.url;
-      v.controls = true;
-      v.autoplay = true;
-      v.playsInline = true;
+      v.src = item.url; v.controls = true; v.autoplay = true; v.playsInline = true;
       v.style.cssText = 'max-width:90vw;max-height:64vh;border-radius:8px;';
       wrap.appendChild(v);
     } else {
@@ -854,6 +745,60 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     G('lb-wrap').innerHTML = '';
     stopAudio();
   });
+
+  /* ── UPLOAD MEDIA ── */
+  G('btn-upload').addEventListener('click', function(){ G('fi-media').click(); });
+  G('fi-media').addEventListener('change', function(){
+    if(!this.files || !this.files.length) return;
+    pendingFiles = Array.from(this.files);
+    pendingIdx = 0; selectedCat = null;
+    openModal();
+    this.value = '';
+  });
+
+  function buildCatGrid(){
+    var grid = G('cat-grid');
+    grid.innerHTML = ''; selectedCat = null;
+    CATS.forEach(function(cat){
+      var btn = document.createElement('button');
+      btn.className = 'cat-btn';
+      btn.innerHTML = '<span class="ci">' + cat.icon + '</span><span>' + cat.label + '</span>';
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('sel'); });
+        btn.classList.add('sel');
+        selectedCat = cat.id;
+        G('m-err').textContent = '';
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  function openModal(){
+    buildCatGrid();
+    var f = pendingFiles[pendingIdx];
+    G('m-title').textContent = pendingFiles.length > 1 ? 'File ' + (pendingIdx + 1) + ' of ' + pendingFiles.length + ' — which memory?' : 'Which memory is this?';
+    G('m-sub').textContent = f.name;
+    G('m-err').textContent = '';
+    G('modal').classList.add('show');
+  }
+
+  G('m-ok').addEventListener('click', function(){
+    if(!selectedCat){ G('m-err').textContent = '⚠ Please pick a category!'; return; }
+    var f = pendingFiles[pendingIdx];
+    var url = URL.createObjectURL(f);
+    var isVideo = f.type.startsWith('video/');
+    if(!mediaStore[selectedCat]) mediaStore[selectedCat] = [];
+    mediaStore[selectedCat].push({url: url, isVideo: isVideo});
+    rebuildSlides(selectedCat);
+    pendingIdx++;
+    if(pendingIdx < pendingFiles.length) openModal();
+    else closeModal();
+  });
+  G('m-cancel').addEventListener('click', closeModal);
+  function closeModal(){
+    G('modal').classList.remove('show');
+    pendingFiles = []; pendingIdx = 0; selectedCat = null;
+  }
 
   /* ── SONG MANAGER ── */
   function buildSongList(){
@@ -885,8 +830,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
         G('splay-' + cat.id).addEventListener('click', function(){ playAudio(cat.id); });
         G('sdel-' + cat.id).addEventListener('click', function(){
           if(songUrls[cat.id]) URL.revokeObjectURL(songUrls[cat.id]);
-          delete songUrls[cat.id];
-          delete songNames[cat.id];
+          delete songUrls[cat.id]; delete songNames[cat.id];
           var dot = G('sdot-' + cat.id);
           if(dot) dot.style.display = 'none';
           buildSongList();
@@ -894,6 +838,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
       }
     });
   }
+  buildSongList();
 
   G('fi-song').addEventListener('change', function(){
     var file = this.files[0];
@@ -918,6 +863,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     img.src = url;
     img.style.display = 'block';
     G('hero-bg').style.display = 'none';
+    G('hero-overlay').style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)';
     this.value = '';
   });
 
@@ -927,26 +873,10 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     panel.classList.toggle('show');
   });
 
-  G('setup-config').addEventListener('click', function(){
-    var owner = prompt('GitHub Owner (username/org):', CONFIG.owner);
-    if(owner !== null && owner.trim()){
-      CONFIG.owner = owner.trim();
-      localStorage.setItem('repoOwner', CONFIG.owner);
-      var repo = prompt('GitHub Repository Name:', CONFIG.repo);
-      if(repo !== null && repo.trim()){
-        CONFIG.repo = repo.trim();
-        localStorage.setItem('repoName', CONFIG.repo);
-        var token = prompt('GitHub Personal Access Token (optional, leave blank for public repos):', CONFIG.githubToken);
-        if(token !== null){
-          CONFIG.githubToken = token.trim();
-          if(CONFIG.githubToken) localStorage.setItem('githubToken', CONFIG.githubToken);
-          else localStorage.removeItem('githubToken');
-        }
-        alert('✓ Configuration updated!');
-        loadMediaFromGitHub();
-        loadSongsFromGitHub();
-      }
-    }
+  G('setup-upload').addEventListener('click', function(){
+    var p = G('panel-upload');
+    p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
+    if(p.style.display === 'block') p.scrollIntoView({behavior:'smooth', block:'center'});
     G('setup-panel').classList.remove('show');
   });
 
@@ -985,10 +915,8 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     }
   });
 
-  // Load songs on startup
-  buildSongList();
-
 })();
 </script>
+
 
 </body></html>
