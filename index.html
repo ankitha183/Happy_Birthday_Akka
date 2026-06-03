@@ -473,88 +473,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-
-/* ══════════════════════════════════════════════════════════
-   BIRTHFLIX CONFIG
-   
-   IMPORTANT: Your repo must be PUBLIC on GitHub.
-   
-   URL FORMAT — use GitHub Pages URL (most reliable for media):
-   https://ankitha183.github.io/Happy_Birthday_Akka/src/filename.mp4
-   
-   If GitHub Pages is not enabled, use jsDelivr:
-   https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/filename.mp4
-══════════════════════════════════════════════════════════ */
-
-var BASE = "https://ankitha183.github.io/Happy_Birthday_Akka/src/";
-var BASE2 = "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/";
-
-var CONFIG = {
-
-  candleSong: "",
-
-  heroBg: "",
-
-  memories: {
-    sleepy: [
-      BASE + "sleepy.mp4"
-    ],
-    trips: [
-      BASE + "trips.mp4"
-    ],
-    forever: [
-      BASE + "forever%20moments.mp4"
-    ],
-    celebrations: [
-      BASE + "celebrations.mp4"
-    ],
-    posing: [
-      BASE + "Poser.mp4"
-    ],
-    firstmeet: [
-      BASE + "first%20meet.mp4"
-    ],
-    supersinger: [
-      BASE + "singer.mp4",
-      "https://ankitha183.github.io/Happy_Birthday_Akka/singer1.mp4",
-      "https://ankitha183.github.io/Happy_Birthday_Akka/singer2.mp4"
-    ],
-    vlogger: [
-      BASE + "vlogger.mp4",
-      BASE + "vlogger1.mp4",
-      BASE + "vlogger3.mp4"
-    ],
-    ustogether: [
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
-      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
-    ],
-    family: []
-  },
-
-  songs: {
-    sleepy:       BASE + "Koyila(KoshalWorld%20(mp3cut.net).mp3",
-    trips:        BASE + "Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
-    forever:      BASE + "Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
-    celebrations: BASE + "Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
-    posing:       BASE + "Aval-Ulaghazhagi%20(mp3cut.net).mp3",
-    firstmeet:    BASE + "Rathamaarey.mp3",
-    supersinger:  "",
-    vlogger:      "",
-    ustogether:   "",
-    family:       ""
-  }
-
-};
-
-
 (function(){
   var PASS = '1992';
   var pin = '';
@@ -1059,48 +977,110 @@ var CONFIG = {
     }
   });
 
-})();
 
 
-/* ── Apply CONFIG automatically on load ── */
-(function applyConfig(){
+  /* ══════════════════════════════════════════════════════
+     BIRTHFLIX CONFIG — edit URLs here, save, re-upload
+     Files must be in your GitHub repo's src/ folder
+     Repo must be PUBLIC + GitHub Pages must be enabled
+  ══════════════════════════════════════════════════════ */
+  var CONFIG = {
 
-  if(CONFIG.candleSong) candleSongUrl = CONFIG.candleSong;
+    candleSong: "",
 
-  if(CONFIG.heroBg){
-    var img = document.getElementById('hero-bg-img');
-    var bgDiv = document.getElementById('hero-bg');
-    var ov = document.getElementById('hero-overlay');
-    if(img){ img.src = CONFIG.heroBg; img.style.display = 'block'; }
-    if(bgDiv) bgDiv.style.display = 'none';
-    if(ov) ov.style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)';
-  }
+    heroBg: "",
 
-  Object.keys(CONFIG.memories).forEach(function(catId){
-    var urls = CONFIG.memories[catId];
-    if(!urls || !urls.length) return;
-    urls.forEach(function(url){
-      if(!url) return;
-      var isVideo = /\.(mp4|mov|webm|ogg)$/i.test(url);
-      if(!mediaStore[catId]) mediaStore[catId] = [];
-      mediaStore[catId].push({url: url, isVideo: isVideo});
+    memories: {
+      sleepy:       ["https://ankitha183.github.io/Happy_Birthday_Akka/src/sleepy.mp4"],
+      trips:        ["https://ankitha183.github.io/Happy_Birthday_Akka/src/trips.mp4"],
+      forever:      ["https://ankitha183.github.io/Happy_Birthday_Akka/src/forever%20moments.mp4"],
+      celebrations: ["https://ankitha183.github.io/Happy_Birthday_Akka/src/celebrations.mp4"],
+      posing:       ["https://ankitha183.github.io/Happy_Birthday_Akka/src/Poser.mp4"],
+      firstmeet:    ["https://ankitha183.github.io/Happy_Birthday_Akka/src/first%20meet.mp4"],
+      supersinger:  [
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/singer.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/singer1.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/singer2.mp4"
+      ],
+      vlogger: [
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/vlogger.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/vlogger1.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/vlogger3.mp4"
+      ],
+      ustogether: [
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
+        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
+      ],
+      family: []
+    },
+
+    songs: {
+      sleepy:       "https://ankitha183.github.io/Happy_Birthday_Akka/src/Koyila(KoshalWorld%20(mp3cut.net).mp3",
+      trips:        "https://ankitha183.github.io/Happy_Birthday_Akka/src/Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
+      forever:      "https://ankitha183.github.io/Happy_Birthday_Akka/src/Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
+      celebrations: "https://ankitha183.github.io/Happy_Birthday_Akka/src/Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
+      posing:       "https://ankitha183.github.io/Happy_Birthday_Akka/src/Aval-Ulaghazhagi%20(mp3cut.net).mp3",
+      firstmeet:    "https://ankitha183.github.io/Happy_Birthday_Akka/src/Rathamaarey.mp3",
+      supersinger:  "",
+      vlogger:      "",
+      ustogether:   "",
+      family:       ""
+    }
+  };
+
+  /* ── Auto-load CONFIG into the app ── */
+  (function(){
+
+    /* Candle song */
+    if(CONFIG.candleSong) candleSongUrl = CONFIG.candleSong;
+
+    /* Hero background */
+    if(CONFIG.heroBg){
+      var img    = document.getElementById('hero-bg-img');
+      var bgDiv  = document.getElementById('hero-bg');
+      var ov     = document.getElementById('hero-overlay');
+      if(img)  { img.src = CONFIG.heroBg; img.style.display = 'block'; }
+      if(bgDiv){ bgDiv.style.display = 'none'; }
+      if(ov)   { ov.style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)'; }
+    }
+
+    /* Photos & videos into each category */
+    Object.keys(CONFIG.memories).forEach(function(catId){
+      var urls = CONFIG.memories[catId];
+      if(!urls || !urls.length) return;
+      urls.forEach(function(url){
+        if(!url) return;
+        var isVideo = /\.(mp4|mov|webm|ogg)$/i.test(url);
+        if(!mediaStore[catId]) mediaStore[catId] = [];
+        mediaStore[catId].push({ url: url, isVideo: isVideo });
+      });
+      rebuildSlides(catId);
     });
-    rebuildSlides(catId);
-  });
 
-  Object.keys(CONFIG.songs).forEach(function(catId){
-    var url = CONFIG.songs[catId];
-    if(!url) return;
-    songUrls[catId]  = url;
-    songNames[catId] = catId;
-    var dot = document.getElementById('sdot-' + catId);
-    if(dot) dot.style.display = 'inline';
-  });
+    /* Songs per category */
+    Object.keys(CONFIG.songs).forEach(function(catId){
+      var url = CONFIG.songs[catId];
+      if(!url) return;
+      songUrls[catId]  = url;
+      songNames[catId] = catId;
+      var dot = document.getElementById('sdot-' + catId);
+      if(dot) dot.style.display = 'inline';
+    });
 
-  if(typeof buildSongList === 'function') buildSongList();
+    /* Refresh song list UI */
+    if(typeof buildSongList === 'function') buildSongList();
+
+  })();
 
 })();
-
 });
 </script>
 </body></html>
