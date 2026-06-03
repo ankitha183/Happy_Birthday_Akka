@@ -377,7 +377,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <p class="who">Who's watching?</p>
   <div class="profiles">
     <div class="pitem profile-pick">
-      <div class="pav" style="background:linear-gradient(135deg,#7b0a14,#c41e3a)">🎂😘</div>
+      <div class="pav" style="background:linear-gradient(135deg,#7b0a14,#c41e3a)">🎂</div>
       <span class="pname">Akka</span>
     </div>
     <div class="pitem profile-pick">
@@ -474,70 +474,75 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 
+/* ══════════════════════════════════════════════
+   BIRTHFLIX CONFIG — all URLs via jsDelivr CDN
+   (no CORS issues, works on GitHub Pages)
+══════════════════════════════════════════════ */
 var CONFIG = {
 
-  candleSong: "",
+  candleSong: "",   /* paste CDN mp3 URL here if needed */
 
-  heroBg: "",
+  heroBg: "",       /* paste CDN image URL here if needed */
 
   memories: {
     sleepy: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/sleepy.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/sleepy.mp4"
     ],
     trips: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/trips.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/trips.mp4"
     ],
     forever: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/forever%20moments.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/forever%20moments.mp4"
     ],
     celebrations: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/celebrations.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/celebrations.mp4"
     ],
     posing: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Poser.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Poser.mp4"
     ],
     firstmeet: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/first%20meet.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/first%20meet.mp4"
     ],
     supersinger: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/singer.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/singer1.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/singer2.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/singer.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/singer1.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/singer2.mp4"
     ],
     vlogger: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/vlogger.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/vlogger1.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/vlogger3.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/vlogger.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/vlogger1.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/vlogger3.mp4"
     ],
     ustogether: [
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
-      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
+      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
     ],
-    family: []
+    family: [],
   },
 
   songs: {
-    sleepy:       "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Koyila(KoshalWorld%20(mp3cut.net).mp3",
-    trips:        "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
-    forever:      "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
-    celebrations: "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
-    posing:       "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Aval-Ulaghazhagi%20(mp3cut.net).mp3",
-    firstmeet:    "https://github.com/ankitha183/Happy_Birthday_Akka/raw/refs/heads/main/src/Rathamaarey.mp3",
-    supersinger:  "",
-    vlogger:      "",
-    ustogether:   "",
-    family:       ""
+    sleepy: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Koyila(KoshalWorld%20(mp3cut.net).mp3",
+    trips: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
+    forever: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
+    celebrations: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
+    posing: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Aval-Ulaghazhagi%20(mp3cut.net).mp3",
+    firstmeet: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Rathamaarey.mp3",
+    supersinger: "",
+    vlogger: "",
+    ustogether: "",
+    family: "",
   }
 
 };
+/* ══════════════════════════════ END CONFIG ══════════════════════════════ */
 
 
 (function(){
@@ -1047,7 +1052,7 @@ var CONFIG = {
 })();
 
 
-/* ── Apply CONFIG on load ── */
+/* ── Apply CONFIG automatically on load ── */
 (function applyConfig(){
 
   if(CONFIG.candleSong) candleSongUrl = CONFIG.candleSong;
@@ -1076,7 +1081,7 @@ var CONFIG = {
   Object.keys(CONFIG.songs).forEach(function(catId){
     var url = CONFIG.songs[catId];
     if(!url) return;
-    songUrls[catId] = url;
+    songUrls[catId]  = url;
     songNames[catId] = catId;
     var dot = document.getElementById('sdot-' + catId);
     if(dot) dot.style.display = 'inline';
