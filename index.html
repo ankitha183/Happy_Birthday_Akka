@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<!-- saved from url=(0073)file:///C:/Users/ankitha.samineni/Downloads/HappyBirthday_Akka%20(1).html -->
+​<!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loveflix — Happy Birthday Akka❤️!</title>
-<link href="./Birthflix — Happy Birthday Akka!- final_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;overflow-x:hidden}
-
-/* SCREENS */
 .screen{display:none}
 .screen.active{display:flex;flex-direction:column}
 #s-login.active{align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#0a0000,#12001a,#000a18)}
 #s-candles.active{align-items:center;justify-content:center;min-height:100vh;background:radial-gradient(ellipse at 50% 60%,#1a0820,#050010)}
 #s-profile.active{align-items:center;justify-content:center;min-height:100vh;background:#141414}
 #s-main.active{background:#141414;min-height:100vh}
-
-/* ── LOGIN ── */
 .nf-logo{font-family:'Bebas Neue',sans-serif;font-size:72px;color:#E50914;letter-spacing:4px;margin-bottom:4px;text-shadow:0 0 60px rgba(229,9,20,.5)}
 .nf-sub{font-size:11px;color:#666;letter-spacing:5px;text-transform:uppercase;margin-bottom:48px}
 .lock-box{background:rgba(0,0,0,.85);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:48px 52px;width:380px;text-align:center}
@@ -33,8 +27,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .key.del{font-size:15px;color:#aaa}
 .key.empty{background:transparent;border:none;pointer-events:none}
 .err{color:#E50914;font-size:13px;margin-top:16px;min-height:18px}
-
-/* ── CANDLES PAGE ── */
 .candle-page{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:30px 20px;text-align:center}
 .bday-top{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:3px;color:#fff;margin-bottom:4px;text-shadow:0 0 20px rgba(255,200,100,.3)}
 .bday-top span{color:#E50914}
@@ -44,8 +36,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .blow-btn.blown{background:linear-gradient(135deg,#1a6a1a,#2aaa2a);box-shadow:0 0 30px rgba(0,200,0,.4)}
 .blown-msg{font-size:20px;color:#ffd700;margin-top:14px;opacity:0;transition:opacity .6s;font-style:italic;text-shadow:0 0 20px rgba(255,215,0,.5)}
 .blown-msg.show{opacity:1}
-
-/* Flame animations */
 @keyframes fl1{0%,100%{transform:scaleY(1) rotate(-2deg)}50%{transform:scaleY(.68) rotate(2deg)}}
 @keyframes fl2{0%,100%{transform:scaleY(.85) rotate(1deg)}50%{transform:scaleY(1.12) rotate(-2deg)}}
 @keyframes fl3{0%,100%{transform:scaleY(1) rotate(2deg)}40%{transform:scaleY(.65) rotate(-1deg)}}
@@ -55,8 +45,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 @keyframes spk{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(0)}}
 .spk{animation:spk 1.2s ease-in-out infinite}
 .flame-hidden{display:none}
-
-/* ── PROFILE ── */
 .who{font-size:34px;font-weight:300;margin-bottom:48px;letter-spacing:1px}
 .profiles{display:flex;gap:44px;flex-wrap:wrap;justify-content:center}
 .pitem{display:flex;flex-direction:column;align-items:center;gap:14px;cursor:pointer}
@@ -64,14 +52,10 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .pitem:hover .pav{transform:scale(1.08);box-shadow:0 0 0 3px #fff}
 .pname{font-size:15px;color:#ccc;font-weight:300}
 .pitem:hover .pname{color:#fff}
-
-/* ── NAV ── */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 44px;background:linear-gradient(to bottom,rgba(0,0,0,.92),transparent);position:fixed;top:0;left:0;right:0;z-index:100}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:30px;color:#E50914;letter-spacing:3px}
 .nav-btn{font-size:12px;color:#aaa;cursor:pointer;border:none;background:transparent;font-family:'Lato',sans-serif}
 .nav-btn:hover{color:#fff}
-
-/* ── HERO ── */
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;padding:0 50px 70px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,#1a0508,#070710,#040410);z-index:0}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.88) 35%,rgba(0,0,0,.2) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 55%);z-index:1}
@@ -86,8 +70,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .hbtn-w{background:#fff;color:#000;border:none;padding:13px 30px;border-radius:4px;font-weight:700;font-size:15px;cursor:pointer;font-family:'Lato',sans-serif}
 .hbtn-w:hover{background:#ddd}
 .hbtn-g{background:rgba(100,100,100,.55);color:#fff;border:none;padding:13px 30px;border-radius:4px;font-weight:700;font-size:15px;cursor:pointer;font-family:'Lato',sans-serif}
-
-/* ── MEMORY CARDS ── */
 .mem-section{padding:32px 44px 36px}
 .sec-title{font-size:20px;font-weight:700;margin-bottom:16px;color:#e5e5e5}
 .cards-wrap{display:flex;gap:10px;flex-wrap:wrap}
@@ -97,32 +79,11 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .mcard-icon{font-size:28px;text-shadow:0 2px 8px rgba(0,0,0,.9)}
 .mcard-lbl{font-size:11px;color:#fff;font-weight:700;text-shadow:0 1px 6px rgba(0,0,0,1);letter-spacing:.3px}
 .mcard-badge{position:absolute;top:8px;right:8px;background:#E50914;color:#fff;font-size:8px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:2px;z-index:3;text-transform:uppercase}
-.mcard-sdot{position:absolute;bottom:7px;left:9px;font-size:12px;z-index:3;display:none}
+.mcard-sdot{position:absolute;bottom:7px;left:9px;font-size:12px;z-index:3}
 .mcard-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity 1s}
 .mcard-slide.show{opacity:1}
 .mcard-ov{position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;transition:opacity .2s;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;z-index:4}
 .mcard:hover .mcard-ov{opacity:1}
-
-/* ── PANELS ── */
-.panel{margin:0 44px 28px;background:#181818;border:1px solid #282828;border-radius:10px;padding:26px 30px}
-.panel h4{font-size:16px;font-weight:700;margin-bottom:4px;color:#e5e5e5}
-.panel>p{font-size:12px;color:#555;margin-bottom:20px}
-.red-btn{background:#E50914;border:none;color:#fff;font-size:14px;font-weight:700;font-family:'Lato',sans-serif;padding:13px 26px;border-radius:5px;cursor:pointer;transition:background .2s}
-.red-btn:hover{background:#f6121d}
-
-/* ── SONG ROWS ── */
-.song-row{display:flex;align-items:center;gap:14px;background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:14px 18px;margin-bottom:10px}
-.s-emoji{font-size:22px;flex-shrink:0}
-.s-info{flex:1}
-.s-cat{font-size:13px;font-weight:700;color:#e5e5e5}
-.s-file{font-size:11px;color:#555;margin-top:3px}
-.s-file.ok{color:#5ee7a0}
-.s-btns{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
-.s-btn{background:#2a2a2a;border:1px solid #3a3a3a;color:#ccc;font-size:11px;font-family:'Lato',sans-serif;padding:7px 13px;border-radius:5px;cursor:pointer;white-space:nowrap}
-.s-btn:hover{background:#333;color:#fff}
-.s-btn.ok{background:#0d2a1a;border-color:#1a5a30;color:#5ee7a0}
-
-/* ── NOW PLAYING ── */
 .now-playing{display:none;position:fixed;bottom:80px;right:22px;background:#111;border:1px solid #E50914;border-radius:20px;padding:10px 16px;z-index:600;box-shadow:0 8px 36px rgba(0,0,0,.8)}
 .now-playing.show{display:flex;align-items:center;gap:12px}
 @keyframes npulse{0%,100%{opacity:1}50%{opacity:.2}}
@@ -133,8 +94,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .np-title{font-size:13px;font-weight:700;margin-top:2px}
 .np-stop{background:transparent;border:none;color:#555;font-size:18px;cursor:pointer;line-height:1}
 .np-stop:hover{color:#E50914}
-
-/* ── LIGHTBOX ── */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:500;align-items:center;justify-content:center;flex-direction:column;padding:20px}
 .lightbox.show{display:flex}
 .lb-wrap{display:flex;align-items:center;justify-content:center;max-width:90vw;max-height:64vh}
@@ -147,36 +106,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .lb-title-bar{font-family:'Bebas Neue',sans-serif;font-size:28px;margin-top:14px;letter-spacing:2px;text-align:center}
 .lb-x{position:fixed;top:18px;right:22px;font-size:32px;cursor:pointer;color:#666;background:none;border:none;z-index:501;line-height:1}
 .lb-x:hover{color:#fff}
-
-/* ── MODAL ── */
-.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
-.modal-ov.show{display:flex}
-.modal{background:#181818;border:1px solid #333;border-radius:14px;padding:32px 26px;width:320px;max-width:92vw}
-.modal-ttl{font-size:18px;font-weight:700;margin-bottom:4px}
-.modal-sub{font-size:12px;color:#555;margin-bottom:16px;word-break:break-all}
-.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
-.cat-btn{background:#222;border:2px solid transparent;color:#fff;font-size:12px;font-family:'Lato',sans-serif;padding:11px 10px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:8px}
-.cat-btn:hover{background:#2a2a2a;border-color:#444}
-.cat-btn.sel{border-color:#E50914;background:#200808}
-.cat-btn .ci{font-size:20px;flex-shrink:0}
-.modal-err{color:#E50914;font-size:11px;margin-bottom:10px;min-height:14px}
-.modal-acts{display:flex;gap:10px}
-.m-ok{flex:1;background:#E50914;border:none;color:#fff;font-size:14px;font-weight:700;font-family:'Lato',sans-serif;padding:13px;border-radius:7px;cursor:pointer}
-.m-ok:hover{background:#f6121d}
-.m-cancel{flex:1;background:#2a2a2a;border:none;color:#aaa;font-size:14px;font-family:'Lato',sans-serif;padding:13px;border-radius:7px;cursor:pointer}
-.m-cancel:hover{color:#fff}
-
-/* ── SETUP BUTTON ── */
-.setup-fab{position:fixed;bottom:22px;left:22px;z-index:700;background:#1a1a1a;border:1px solid #444;color:#aaa;font-size:12px;font-family:'Lato',sans-serif;padding:10px 18px;border-radius:20px;cursor:pointer;transition:all .2s}
-.setup-fab:hover{background:#222;color:#fff;border-color:#666}
-.setup-panel{display:none;position:fixed;bottom:68px;left:22px;z-index:700;background:#111;border:1px solid #E50914;border-radius:12px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,.8);min-width:200px}
-.setup-panel.show{display:block}
-.setup-panel-title{font-size:10px;color:#666;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
-.setup-item{display:block;width:100%;background:#1e1e1e;border:1px solid #2a2a2a;color:#ccc;font-size:12px;font-family:'Lato',sans-serif;padding:10px 14px;border-radius:6px;cursor:pointer;text-align:left;margin-bottom:8px;transition:all .2s}
-.setup-item:hover{background:#2a2a2a;color:#fff;border-color:#444}
-.setup-item:last-child{margin-bottom:0}
-
-/* BOUQUET OVERLAY */
 .bouquet-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:800;align-items:center;justify-content:center;flex-direction:column;gap:0}
 .bouquet-ov.show{display:flex}
 .bouquet-msg{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:3px;color:#fff;text-align:center;margin-bottom:10px;text-shadow:0 0 30px rgba(255,200,100,.4)}
@@ -186,17 +115,8 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 .bouquet-next{background:#E50914;border:none;color:#fff;font-size:16px;font-family:'Bebas Neue',sans-serif;letter-spacing:2px;padding:14px 40px;border-radius:30px;cursor:pointer;box-shadow:0 0 24px rgba(229,9,20,.4);transition:all .2s}
 .bouquet-next:hover{transform:scale(1.04)}
 @keyframes bouncein{0%{transform:scale(0) rotate(-20deg);opacity:0}60%{transform:scale(1.15) rotate(5deg)}100%{transform:scale(1) rotate(0);opacity:1}}
-
-/* CONFETTI */
 @keyframes cffall{0%{transform:translateY(-30px) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .cf{position:fixed;pointer-events:none;animation:cffall linear infinite;z-index:9000}
-
-/* GitHub Config Panel */
-.config-panel{margin:0 44px 28px;background:#181818;border:1px solid #282828;border-radius:10px;padding:26px 30px;display:none}
-.config-panel.show{display:block}
-.config-panel h4{font-size:16px;font-weight:700;margin-bottom:12px;color:#e5e5e5}
-.config-input{width:100%;background:#1e1e1e;border:1px solid #2a2a2a;color:#fff;font-size:12px;font-family:'Lato',sans-serif;padding:10px 14px;border-radius:6px;margin-bottom:10px;box-sizing:border-box}
-.config-input:focus{outline:none;border-color:#E50914}
 </style>
 </head>
 <body>
@@ -205,7 +125,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <div class="now-playing" id="np">
   <div class="np-dot"></div>
   <div class="np-icon" id="np-icon">🎵</div>
-  <div class="np-info"><div class="np-label" style="letter-spacing:2px">🎵 Playing</div></div>
+  <div class="np-info"><div class="np-label">🎵 Playing</div></div>
   <button class="np-stop" id="np-stop">■</button>
 </div>
 
@@ -221,40 +141,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <div class="lb-title-bar" id="lb-title"></div>
 </div>
 
-<!-- CATEGORY MODAL -->
-<div class="modal-ov" id="modal">
-  <div class="modal">
-    <div class="modal-ttl" id="m-title">Which memory is this?</div>
-    <div class="modal-sub" id="m-sub"></div>
-    <div class="modal-err" id="m-err"></div>
-    <div class="cat-grid" id="cat-grid"></div>
-    <div class="modal-acts">
-      <button class="m-cancel" id="m-cancel">Cancel</button>
-      <button class="m-ok" id="m-ok">Add ✓</button>
-    </div>
-  </div>
-</div>
-
-<!-- SETUP FAB -->
-<button class="setup-fab" id="setup-fab">⚙ Setup</button>
-<div class="setup-panel" id="setup-panel">
-  <div class="setup-panel-title">⚙ Setup Mode</div>
-  <button class="setup-item" id="setup-config">📝 GitHub Config</button>
-  <button class="setup-item" id="setup-candle-song">🎵 Set Candle Page Song</button>
-  <button class="setup-item" id="setup-bg">🖼 Set Background Photo</button>
-</div>
-
-<!-- GitHub CONFIG PANEL -->
-<div class="config-panel" id="config-panel">
-  <h4>🔗 Load Media from GitHub</h4>
-  <p style="font-size:12px;color:#555;margin-bottom:12px;">Enter GitHub raw content URLs for photos, videos, and songs. Separate multiple URLs with commas.</p>
-  
-  <div id="config-categories"></div>
-  
-  <button class="red-btn" id="btn-config-save" style="width:100%;margin-top:12px;">✓ Save & Load</button>
-  <button class="red-btn" id="btn-config-cancel" style="width:100%;margin-top:8px;background:#555;">Cancel</button>
-</div>
-
 <!-- BOUQUET OVERLAY -->
 <div class="bouquet-ov" id="bouquet-ov">
   <div class="bouquet-msg">For You, My Dearest <span>Akka! 💕</span></div>
@@ -267,13 +153,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <button class="bouquet-next" id="bouquet-next">Continue →</button>
 </div>
 
-<!-- FILE INPUTS -->
-<input type="file" id="fi-media" multiple="" accept="image/*,video/*" style="display:none">
-<input type="file" id="fi-song" accept="audio/*" style="display:none">
-<input type="file" id="fi-bg" accept="image/*" style="display:none">
-<input type="file" id="fi-candle-song" accept="audio/*" style="display:none">
-
-<!-- ═══════════ SCREEN 1: LOGIN ═══════════ -->
+<!-- SCREEN 1: LOGIN -->
 <div id="s-login" class="screen active">
   <div class="nf-logo">BIRTHFLIX</div>
   <div class="nf-sub">Unlimited memories · Just for Akka</div>
@@ -304,49 +184,38 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   </div>
 </div>
 
-<!-- ═══════════ SCREEN 2: BLOW CANDLES ═══════════ -->
+<!-- SCREEN 2: BLOW CANDLES -->
 <div id="s-candles" class="screen">
   <div class="candle-page">
     <div class="bday-top">Happy Birthday My Dearest<br><span>Akka ga! 🎉</span></div>
     <div class="cake-svg-wrap">
       <svg width="300" height="250" viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Candle sticks -->
         <rect x="80" y="70" width="13" height="38" rx="4" fill="#ff6b9d"></rect>
         <rect x="143" y="55" width="13" height="52" rx="4" fill="#ffd166"></rect>
         <rect x="207" y="70" width="13" height="38" rx="4" fill="#5ee7c2"></rect>
-
-        <!-- FLAME 1 (pink candle) — starts LIT -->
         <g id="f1" class="fl1">
           <ellipse cx="87" cy="65" rx="7" ry="13" fill="#ffb347"></ellipse>
           <ellipse cx="87" cy="65" rx="4.5" ry="8" fill="#fff176"></ellipse>
           <ellipse cx="87" cy="67" rx="2.5" ry="5" fill="#fff"></ellipse>
         </g>
-        <!-- FLAME 2 (yellow candle) — starts LIT -->
         <g id="f2" class="fl2">
           <ellipse cx="150" cy="49" rx="7" ry="13" fill="#ffb347"></ellipse>
           <ellipse cx="150" cy="49" rx="4.5" ry="8" fill="#fff176"></ellipse>
           <ellipse cx="150" cy="51" rx="2.5" ry="5" fill="#fff"></ellipse>
         </g>
-        <!-- FLAME 3 (teal candle) — starts LIT -->
         <g id="f3" class="fl3">
           <ellipse cx="214" cy="65" rx="7" ry="13" fill="#ffb347"></ellipse>
           <ellipse cx="214" cy="65" rx="4.5" ry="8" fill="#fff176"></ellipse>
           <ellipse cx="214" cy="67" rx="2.5" ry="5" fill="#fff"></ellipse>
         </g>
-
-        <!-- Sparkles -->
-        <text class="spk" x="56" y="58" font-size="13" fill="#ffd700" style="animation-delay: 0.1s;">✦</text>
-        <text class="spk" x="234" y="54" font-size="11" fill="#ffd700" style="animation-delay: 0.5s;">✦</text>
-        <text class="spk" x="166" y="40" font-size="9" fill="#ffd700" style="animation-delay: 0.9s;">✦</text>
-        <text class="spk" x="120" y="50" font-size="8" fill="#ffd700" style="animation-delay: 0.3s;">✦</text>
-
-        <!-- Top tier -->
+        <text class="spk" x="56" y="58" font-size="13" fill="#ffd700" style="animation-delay:0.1s">✦</text>
+        <text class="spk" x="234" y="54" font-size="11" fill="#ffd700" style="animation-delay:0.5s">✦</text>
+        <text class="spk" x="166" y="40" font-size="9" fill="#ffd700" style="animation-delay:0.9s">✦</text>
+        <text class="spk" x="120" y="50" font-size="8" fill="#ffd700" style="animation-delay:0.3s">✦</text>
         <ellipse cx="150" cy="112" rx="60" ry="13" fill="#e84393"></ellipse>
         <rect x="90" y="111" width="120" height="36" fill="#e84393"></rect>
         <ellipse cx="150" cy="147" rx="60" ry="13" fill="#c4106e"></ellipse>
         <path d="M97 113 Q104 101 111 113 Q118 101 125 113 Q132 101 139 113 Q146 101 153 113 Q160 101 167 113 Q174 101 181 113 Q188 101 195 113 Q200 101 203 113" stroke="#fff" stroke-width="2.5" fill="none" opacity=".35"></path>
-
-        <!-- Middle tier -->
         <ellipse cx="150" cy="148" rx="76" ry="14" fill="#7c3aed"></ellipse>
         <rect x="74" y="147" width="152" height="34" fill="#7c3aed"></rect>
         <ellipse cx="150" cy="181" rx="76" ry="14" fill="#5b21b6"></ellipse>
@@ -355,14 +224,10 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
         <circle cx="150" cy="164" r="5" fill="#5ee7c2"></circle>
         <circle cx="180" cy="160" r="4" fill="#ffd166"></circle>
         <circle cx="204" cy="164" r="5" fill="#ff6b9d"></circle>
-
-        <!-- Bottom tier -->
         <ellipse cx="150" cy="182" rx="92" ry="16" fill="#E50914"></ellipse>
         <rect x="58" y="181" width="184" height="36" fill="#E50914"></rect>
         <ellipse cx="150" cy="217" rx="92" ry="16" fill="#b80710"></ellipse>
         <path d="M70 198 Q92 187 114 198 Q136 187 158 198 Q178 187 200 198 Q216 187 230 198" stroke="#fff" stroke-width="2" fill="none" opacity=".35"></path>
-
-        <!-- Plate -->
         <ellipse cx="150" cy="217" rx="102" ry="12" fill="#f0f0f0"></ellipse>
         <ellipse cx="150" cy="216" rx="99" ry="11" fill="#fff"></ellipse>
       </svg>
@@ -372,7 +237,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   </div>
 </div>
 
-<!-- ═══════════ SCREEN 3: PROFILE ═══════════ -->
+<!-- SCREEN 3: PROFILE -->
 <div id="s-profile" class="screen">
   <p class="who">Who's watching?</p>
   <div class="profiles">
@@ -391,17 +256,16 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   </div>
 </div>
 
-<!-- ═══════════ SCREEN 4: MAIN ═══════════ -->
+<!-- SCREEN 4: MAIN -->
 <div id="s-main" class="screen">
   <div class="nav">
     <span class="nav-logo">LOVEFLIX</span>
     <button class="nav-btn" id="btn-switch">← Switch Profile</button>
   </div>
 
-  <!-- HERO -->
   <div class="hero" id="hero-section">
-    <div class="hero-bg" id="hero-bg" style="display: none;"></div>
-    <img class="hero-bg-img" id="hero-bg-img" src="" alt="" style="display: none;">
+    <div class="hero-bg" id="hero-bg"></div>
+    <img class="hero-bg-img" id="hero-bg-img" src="" alt="">
     <div class="hero-overlay" id="hero-overlay"></div>
     <div class="cake-hero">
       <svg width="185" height="205" viewBox="0 0 185 205" fill="none">
@@ -411,8 +275,8 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
         <g class="fl1"><ellipse cx="43" cy="46" rx="5.5" ry="10" fill="#ffb347"></ellipse><ellipse cx="43" cy="46" rx="3" ry="6" fill="#fff9c4"></ellipse></g>
         <g class="fl2"><ellipse cx="93" cy="35" rx="5.5" ry="10" fill="#ffb347"></ellipse><ellipse cx="93" cy="35" rx="3" ry="6" fill="#fff9c4"></ellipse></g>
         <g class="fl3"><ellipse cx="143" cy="46" rx="5.5" ry="10" fill="#ffb347"></ellipse><ellipse cx="143" cy="46" rx="3" ry="6" fill="#fff9c4"></ellipse></g>
-        <text class="spk" x="24" y="42" font-size="11" fill="#ffd700" style="animation-delay: 0.2s;">✦</text>
-        <text class="spk" x="154" y="38" font-size="9" fill="#ffd700" style="animation-delay: 0.7s;">✦</text>
+        <text class="spk" x="24" y="42" font-size="11" fill="#ffd700" style="animation-delay:0.2s">✦</text>
+        <text class="spk" x="154" y="38" font-size="9" fill="#ffd700" style="animation-delay:0.7s">✦</text>
         <ellipse cx="93" cy="82" rx="44" ry="10" fill="#d42b6a"></ellipse>
         <rect x="49" y="81" width="88" height="26" fill="#d42b6a"></rect>
         <ellipse cx="93" cy="107" rx="44" ry="10" fill="#b81e58"></ellipse>
@@ -444,69 +308,108 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     </div>
   </div>
 
-  <!-- MEMORY CARDS -->
   <div class="mem-section" id="mem-row">
     <p class="sec-title">📸 Our Memories Together</p>
-    <div class="cards-wrap" id="cards-wrap">
-    </div>
-  </div>
-
-  <!-- UPLOAD PANEL (hidden by default, shown via setup) -->
-  <div class="panel" id="panel-upload" style="display: none;">
-    <h4>🎞 Add Your Photos &amp; Videos</h4>
-    <p>Select files and assign them to a memory — they show as slideshow on the card and play in full when opened</p>
-    <button class="red-btn" id="btn-upload">📁 Choose Photos &amp; Videos</button>
-  </div>
-
-  <!-- SONG PANEL (hidden by default, shown via setup) -->
-  <div class="panel" id="panel-songs" style="display:none">
-    <h4>🎵 Add Songs to Each Memory</h4>
-    <p>Song plays automatically when that memory card is opened</p>
-    <div id="song-list"></div>
+    <div class="cards-wrap" id="cards-wrap"></div>
   </div>
 
   <div style="height:80px"></div>
 </div>
 
-
-
-
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-(function(){
+
+  // ── STATIC MEDIA CONFIG ──────────────────────────────────────────────────
+  // All media served from GitHub Pages. To update: edit URLs here and commit.
+  var BASE = 'https://ankitha183.github.io/Happy_Birthday_Akka/src/';
+
+  var CONFIG = {
+    candleSong: BASE + 'candle_song.mp3',
+    heroBg:     BASE + 'hero_bg.jpg',
+    memories: {
+      sleepy:        [BASE + 'sleepy.mp4'],
+      trips:         [BASE + 'trips.mp4'],
+      forever:       [BASE + 'forever%20moments.mp4'],
+      celebrations:  [BASE + 'celebrations.mp4'],
+      posing:        [BASE + 'Poser.mp4'],
+      firstmeet:     [BASE + 'first%20meet.mp4'],
+      supersinger:   [BASE + 'supersinger.mp4'],
+      vlogger:       [BASE + 'vlogger.mp4'],
+      ustogether:    [BASE + 'ustogether.mp4'],
+      Family:        [BASE + 'family.mp4']
+    },
+    songs: {
+      sleepy:        BASE + 'songs/sleepy.mp3',
+      trips:         BASE + 'songs/trips.mp3',
+      forever:       BASE + 'songs/forever.mp3',
+      celebrations:  BASE + 'songs/celebrations.mp3',
+      posing:        BASE + 'songs/posing.mp3',
+      firstmeet:     BASE + 'songs/firstmeet.mp3',
+      supersinger:   BASE + 'songs/supersinger.mp3',
+      vlogger:       BASE + 'songs/vlogger.mp3',
+      ustogether:    BASE + 'songs/ustogether.mp3',
+      Family:        BASE + 'songs/family.mp3'
+    }
+  };
+  // ─────────────────────────────────────────────────────────────────────────
+
   var PASS = '1992';
   var pin = '';
-  var pendingFiles = [], pendingIdx = 0, selectedCat = null;
   var currentAudio = null;
-  var songUrls = {}, songNames = {};
   var mediaStore = {};
+  var songUrls = {};
   var slideTimers = {};
   var lbCat = null, lbIdx = 0;
-  var songTarget = null;
   var candlesBlown = false;
+  var candleAudio = null;
 
   var CATS = [
-    {id:'sleepy',        label:'Sleepy Beauty',    icon:'😴'},
-    {id:'trips',         label:'Our Trips',        icon:'✈️'},
-    {id:'forever',       label:'Forever Moments',  icon:'🫂'},
-    {id:'celebrations',  label:'Celebrations',     icon:'🥂'},
-    {id:'posing',        label:'Posing Queen',     icon:'😂'},
-    {id:'firstmeet',     label:'Our First Meet',   icon:'🤗'},
-    {id:'supersinger',   label:'Super Singer',     icon:'🎤'},
-    {id:'vlogger',       label:'The Vlogger',      icon:'🎥'},
-    {id:'ustogether',    label:'Us Together',      icon:'😘'},
-    {id:'Family',        label:'Family',           icon:'❤️'},
+    {id:'sleepy',       label:'Sleepy Beauty',    icon:'😴'},
+    {id:'trips',        label:'Our Trips',         icon:'✈️'},
+    {id:'forever',      label:'Forever Moments',   icon:'🫂'},
+    {id:'celebrations', label:'Celebrations',       icon:'🥂'},
+    {id:'posing',       label:'Posing Queen',       icon:'😂'},
+    {id:'firstmeet',    label:'Our First Meet',     icon:'🤗'},
+    {id:'supersinger',  label:'Super Singer',       icon:'🎤'},
+    {id:'vlogger',      label:'The Vlogger',        icon:'🎥'},
+    {id:'ustogether',   label:'Us Together',        icon:'😘'},
+    {id:'Family',       label:'Family',             icon:'❤️'},
   ];
 
   function G(id){ return document.getElementById(id); }
 
-  /* ── SCREENS ── */
+  // ── APPLY STATIC CONFIG ON LOAD ─────────────────────────────────────────
+  function applyConfig(){
+    // Hero background
+    if(CONFIG.heroBg){
+      var img = G('hero-bg-img');
+      img.src = CONFIG.heroBg;
+      img.style.display = 'block';
+      G('hero-bg').style.display = 'none';
+      G('hero-overlay').style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)';
+    }
+    // Memory media
+    CATS.forEach(function(cat){
+      var urls = CONFIG.memories[cat.id] || [];
+      if(urls.length){
+        mediaStore[cat.id] = urls.map(function(url){
+          return { url: url, isVideo: /\.(mp4|webm|mov|avi)$/i.test(url) };
+        });
+      }
+      // Songs
+      if(CONFIG.songs && CONFIG.songs[cat.id]){
+        songUrls[cat.id] = CONFIG.songs[cat.id];
+      }
+    });
+  }
+
+  // ── SCREENS ──────────────────────────────────────────────────────────────
   function showScreen(id){
     document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
     G(id).classList.add('active');
   }
 
-  /* ── PIN ── */
+  // ── PIN ──────────────────────────────────────────────────────────────────
   document.querySelectorAll('.key[data-n]').forEach(function(btn){
     btn.addEventListener('click', function(){ pressKey(btn.getAttribute('data-n')); });
   });
@@ -515,68 +418,61 @@ document.addEventListener('DOMContentLoaded', function(){
   function pressKey(n){
     if(pin.length >= 4) return;
     pin += n;
-    G('d' + (pin.length - 1)).classList.add('filled');
+    G('d'+(pin.length-1)).classList.add('filled');
     if(pin.length === 4) setTimeout(checkPin, 220);
   }
   function delKey(){
     if(!pin.length) return;
-    G('d' + (pin.length - 1)).classList.remove('filled');
-    pin = pin.slice(0, -1);
+    G('d'+(pin.length-1)).classList.remove('filled');
+    pin = pin.slice(0,-1);
     G('err').textContent = '';
   }
   function checkPin(){
     if(pin === PASS){
-      showScreen('s-candles'); playCandleSong();
+      showScreen('s-candles');
+      playCandleSong();
     } else {
       G('err').textContent = 'Wrong passkey — try again!';
       pin = '';
-      for(var i = 0; i < 4; i++) G('d' + i).classList.remove('filled');
+      for(var i=0;i<4;i++) G('d'+i).classList.remove('filled');
     }
   }
 
-  /* ── BLOW CANDLES ── */
-  var candleSongUrl = null;
-  var candleAudio = null;
-
+  // ── CANDLE SONG ──────────────────────────────────────────────────────────
   function playCandleSong(){
-    if(!candleSongUrl) return;
+    if(!CONFIG.candleSong) return;
     stopCandleAudio();
-    candleAudio = new Audio(candleSongUrl);
+    candleAudio = new Audio(CONFIG.candleSong);
     candleAudio.loop = true;
-    var p = candleAudio.play();
-    if(p) p.catch(function(){});
+    var p = candleAudio.play(); if(p) p.catch(function(){});
   }
   function stopCandleAudio(){
-    if(candleAudio){ candleAudio.pause(); candleAudio.currentTime = 0; candleAudio = null; }
+    if(candleAudio){ candleAudio.pause(); candleAudio.currentTime=0; candleAudio=null; }
   }
 
+  // ── BLOW CANDLES ─────────────────────────────────────────────────────────
   G('blow-btn').addEventListener('click', function(){
     if(candlesBlown) return;
     candlesBlown = true;
-
     ['f1','f2','f3'].forEach(function(id){
-      var g = G(id);
-      if(g) g.classList.add('flame-hidden');
+      var g=G(id); if(g) g.classList.add('flame-hidden');
     });
-    document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity = '0'; });
-
+    document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity='0'; });
     setTimeout(function(){
       G('blown-msg').classList.add('show');
       G('blow-btn').textContent = '🎉 Candles Blown!';
       G('blow-btn').classList.add('blown');
       launchConfetti();
     }, 400);
-
     setTimeout(function(){
       stopCandleAudio();
-      showScreen('s-candles'); playCandleSong();
       G('bouquet-ov').classList.add('show');
       launchConfetti();
       candlesBlown = false;
       ['f1','f2','f3'].forEach(function(id){
-        var g = G(id); if(g) g.classList.remove('flame-hidden');
+        var g=G(id); if(g) g.classList.remove('flame-hidden');
       });
-      document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity = ''; });
+      document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity=''; });
       G('blown-msg').classList.remove('show');
       G('blow-btn').textContent = '💨 Blow the Candles!';
       G('blow-btn').classList.remove('blown');
@@ -588,81 +484,84 @@ document.addEventListener('DOMContentLoaded', function(){
     showScreen('s-profile');
   });
 
-  /* ── PROFILES ── */
+  // ── PROFILES ─────────────────────────────────────────────────────────────
   document.querySelectorAll('.profile-pick').forEach(function(p){
     p.addEventListener('click', function(){ showScreen('s-main'); launchConfetti(); });
   });
   G('btn-switch').addEventListener('click', function(){ stopAudio(); showScreen('s-profile'); });
   G('btn-story').addEventListener('click', function(){ G('mem-row').scrollIntoView({behavior:'smooth'}); });
 
-  /* ── CONFETTI ── */
+  // ── CONFETTI ─────────────────────────────────────────────────────────────
   function launchConfetti(){
-    var cols = ['#E50914','#ffd700','#ff6b9d','#5ee7c2','#7c3aed','#ffd166','#fff','#ff9f43'];
-    for(var i = 0; i < 70; i++){
-      var c = document.createElement('div'); c.className = 'cf';
-      var sz = (Math.random() * 9 + 5) + 'px';
-      c.style.cssText = 'left:' + Math.random() * 100 + 'vw;top:0;width:' + sz + ';height:' + sz +
-        ';background:' + cols[i % cols.length] +
-        ';animation-duration:' + (Math.random() * 2.5 + 1.2).toFixed(1) + 's' +
-        ';animation-delay:' + (Math.random() * 2).toFixed(1) + 's' +
-        ';border-radius:' + (Math.random() > .5 ? '50%' : '2px');
+    var cols=['#E50914','#ffd700','#ff6b9d','#5ee7c2','#7c3aed','#ffd166','#fff','#ff9f43'];
+    for(var i=0;i<70;i++){
+      var c=document.createElement('div'); c.className='cf';
+      var sz=(Math.random()*9+5)+'px';
+      c.style.cssText='left:'+Math.random()*100+'vw;top:0;width:'+sz+';height:'+sz+
+        ';background:'+cols[i%cols.length]+
+        ';animation-duration:'+(Math.random()*2.5+1.2).toFixed(1)+'s'+
+        ';animation-delay:'+(Math.random()*2).toFixed(1)+'s'+
+        ';border-radius:'+(Math.random()>.5?'50%':'2px');
       document.body.appendChild(c);
     }
     setTimeout(function(){ document.querySelectorAll('.cf').forEach(function(c){ c.remove(); }); }, 8000);
   }
 
-  /* ── AUDIO ── */
+  // ── AUDIO ─────────────────────────────────────────────────────────────────
   function playAudio(catId){
     stopAudio();
     if(!songUrls[catId]) return;
     var a = new Audio(songUrls[catId]);
     a.loop = true;
-    var p = a.play();
-    if(p) p.catch(function(){});
+    var p = a.play(); if(p) p.catch(function(){});
     currentAudio = a;
-    var cat = CATS.find(function(c){ return c.id === catId; });
+    var cat = CATS.find(function(c){ return c.id===catId; });
     G('np-icon').textContent = cat ? cat.icon : '🎵';
     G('np').classList.add('show');
   }
   function stopAudio(){
-    if(currentAudio){ currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
+    if(currentAudio){ currentAudio.pause(); currentAudio.currentTime=0; currentAudio=null; }
     G('np').classList.remove('show');
   }
   G('np-stop').addEventListener('click', stopAudio);
 
-  /* ── BUILD MEMORY CARDS ── */
+  // ── MEMORY CARDS ─────────────────────────────────────────────────────────
+  var gradients = {
+    sleepy:        'linear-gradient(135deg,#0d0d2a,#1a1060)',
+    trips:         'linear-gradient(135deg,#0a1a2e,#0e3a5c)',
+    forever:       'linear-gradient(135deg,#2a0a1a,#6b1040)',
+    celebrations:  'linear-gradient(135deg,#1a1000,#4a3000)',
+    posing:        'linear-gradient(135deg,#2a0a2a,#6b0a6b)',
+    firstmeet:     'linear-gradient(135deg,#0a2a1a,#0a5a2a)',
+    supersinger:   'linear-gradient(135deg,#1a0a2e,#4a1080)',
+    vlogger:       'linear-gradient(135deg,#0a0a1a,#1a0a3a)',
+    ustogether:    'linear-gradient(135deg,#1a0a0a,#4a1a1a)',
+    Family:        'linear-gradient(135deg,#1a0a0a,#3a0a0a)'
+  };
+
   function buildMemoryCards(){
     var wrap = G('cards-wrap');
     wrap.innerHTML = '';
     CATS.forEach(function(cat){
-      var gradients = {
-        'sleepy': 'linear-gradient(135deg,#0d0d2a,#1a1060)',
-        'trips': 'linear-gradient(135deg,#0a1a2e,#0e3a5c)',
-        'forever': 'linear-gradient(135deg,#2a0a1a,#6b1040)',
-        'celebrations': 'linear-gradient(135deg,#1a1000,#4a3000)',
-        'posing': 'linear-gradient(135deg,#2a0a2a,#6b0a6b)',
-        'firstmeet': 'linear-gradient(135deg,#0a2a1a,#0a5a2a)',
-        'supersinger': 'linear-gradient(135deg,#1a0a2e,#4a1080)',
-        'vlogger': 'linear-gradient(135deg,#0a0a1a,#1a0a3a)',
-        'ustogether': 'linear-gradient(135deg,#1a0a0a,#4a1a1a)'
-      };
       var card = document.createElement('div');
       card.className = 'mcard';
       card.setAttribute('data-cat', cat.id);
-      card.setAttribute('data-label', cat.label);
       card.style.background = gradients[cat.id] || 'linear-gradient(135deg,#0a0a1a,#1a0a3a)';
-      card.innerHTML = '<div class="mcard-inner"><span class="mcard-icon">' + cat.icon + '</span><span class="mcard-lbl">' + cat.label + '</span></div><span class="mcard-badge">Media</span><span class="mcard-sdot" id="sdot-' + cat.id + '">🎵</span><div class="mcard-ov">▶ Open</div>';
-      card.addEventListener('click', function(){
-        openLB(cat.id, cat.label);
-      });
+      var hasSong = !!songUrls[cat.id];
+      card.innerHTML =
+        '<div class="mcard-inner"><span class="mcard-icon">'+cat.icon+'</span><span class="mcard-lbl">'+cat.label+'</span></div>'+
+        '<span class="mcard-badge">Watch</span>'+
+        (hasSong ? '<span class="mcard-sdot">🎵</span>' : '')+
+        '<div class="mcard-ov">▶ Open</div>';
+      card.addEventListener('click', function(){ openLB(cat.id, cat.label); });
       wrap.appendChild(card);
+      rebuildSlides(cat.id);
     });
   }
-  buildMemoryCards();
 
-  /* ── CARD SLIDESHOW ── */
+  // ── CARD SLIDESHOW ────────────────────────────────────────────────────────
   function rebuildSlides(catId){
-    var card = document.querySelector('.mcard[data-cat="' + catId + '"]');
+    var card = document.querySelector('.mcard[data-cat="'+catId+'"]');
     if(!card) return;
     card.querySelectorAll('.mcard-slide').forEach(function(e){ e.remove(); });
     var items = mediaStore[catId] || [];
@@ -670,12 +569,12 @@ document.addEventListener('DOMContentLoaded', function(){
       var el;
       if(item.isVideo){
         el = document.createElement('video');
-        el.src = item.url; el.muted = true; el.loop = true; el.playsInline = true;
+        el.src = item.url; el.muted=true; el.loop=true; el.playsInline=true;
       } else {
         el = document.createElement('img');
-        el.src = item.url; el.alt = '';
+        el.src = item.url; el.alt='';
       }
-      el.className = 'mcard-slide' + (i === 0 ? ' show' : '');
+      el.className = 'mcard-slide'+(i===0?' show':'');
       card.insertBefore(el, card.firstChild);
     });
     if(items.length > 0){
@@ -691,24 +590,23 @@ document.addEventListener('DOMContentLoaded', function(){
     if(items.length <= 1) return;
     var idx = 0;
     slideTimers[catId] = setInterval(function(){
-      var card = document.querySelector('.mcard[data-cat="' + catId + '"]');
+      var card = document.querySelector('.mcard[data-cat="'+catId+'"]');
       if(!card) return;
       var slides = card.querySelectorAll('.mcard-slide');
       slides.forEach(function(s){ s.classList.remove('show'); });
-      idx = (idx + 1) % slides.length;
+      idx = (idx+1) % slides.length;
       if(slides[idx]) slides[idx].classList.add('show');
     }, 2500);
   }
 
-  /* ── LIGHTBOX ── */
+  // ── LIGHTBOX ──────────────────────────────────────────────────────────────
   function openLB(catId, label){
-    lbCat = catId; lbIdx = 0;
+    lbCat=catId; lbIdx=0;
     G('lb-title').textContent = label;
     G('lb').classList.add('show');
     renderSlide();
     if(songUrls[catId]) playAudio(catId);
   }
-
   function renderSlide(){
     var wrap = G('lb-wrap');
     wrap.innerHTML = '';
@@ -716,7 +614,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if(!items.length){
       var p = document.createElement('p');
       p.style.cssText = 'color:#555;font-size:14px;text-align:center;padding:80px 20px;';
-      p.textContent = 'No photos or videos added yet — use ⚙ Setup to add!';
+      p.textContent = 'No media found for this memory.';
       wrap.appendChild(p);
       G('lb-count').textContent = '';
       G('lb-prev').disabled = true;
@@ -726,361 +624,34 @@ document.addEventListener('DOMContentLoaded', function(){
     var item = items[lbIdx];
     if(item.isVideo){
       var v = document.createElement('video');
-      v.src = item.url; v.controls = true; v.autoplay = true; v.playsInline = true;
-      v.style.cssText = 'max-width:90vw;max-height:64vh;border-radius:8px;';
+      v.src=item.url; v.controls=true; v.autoplay=true; v.playsInline=true;
+      v.style.cssText='max-width:90vw;max-height:64vh;border-radius:8px;';
       wrap.appendChild(v);
     } else {
       var img = document.createElement('img');
       img.src = item.url;
-      img.style.cssText = 'max-width:90vw;max-height:64vh;border-radius:8px;object-fit:contain;display:block;';
+      img.style.cssText='max-width:90vw;max-height:64vh;border-radius:8px;object-fit:contain;display:block;';
       wrap.appendChild(img);
     }
-    G('lb-count').textContent = (lbIdx + 1) + ' / ' + items.length;
-    G('lb-prev').disabled = (lbIdx === 0);
-    G('lb-next').disabled = (lbIdx === items.length - 1);
+    G('lb-count').textContent = (lbIdx+1)+' / '+items.length;
+    G('lb-prev').disabled = (lbIdx===0);
+    G('lb-next').disabled = (lbIdx===items.length-1);
   }
-
-  G('lb-prev').addEventListener('click', function(){ if(lbIdx > 0){ lbIdx--; renderSlide(); } });
+  G('lb-prev').addEventListener('click', function(){ if(lbIdx>0){ lbIdx--; renderSlide(); } });
   G('lb-next').addEventListener('click', function(){
-    var items = mediaStore[lbCat] || [];
-    if(lbIdx < items.length - 1){ lbIdx++; renderSlide(); }
+    var items = mediaStore[lbCat]||[];
+    if(lbIdx<items.length-1){ lbIdx++; renderSlide(); }
   });
   G('lb-x').addEventListener('click', function(){
     G('lb').classList.remove('show');
-    G('lb-wrap').innerHTML = '';
+    G('lb-wrap').innerHTML='';
     stopAudio();
   });
 
-  /* ── GITHUB CONFIG ── */
-  function buildConfigPanel(){
-    var configCat = G('config-categories');
-    configCat.innerHTML = '';
-    CATS.forEach(function(cat){
-      var div = document.createElement('div');
-      div.style.marginBottom = '12px';
-      div.innerHTML = '<label style="font-size:12px;color:#aaa;display:block;margin-bottom:4px;">' + cat.icon + ' ' + cat.label + ' (Photos/Videos)</label>' +
-        '<textarea id="cfg-' + cat.id + '" class="config-input" rows="2" placeholder="Paste GitHub raw URLs separated by commas"></textarea>';
-      configCat.appendChild(div);
-      
-      var songDiv = document.createElement('div');
-      songDiv.style.marginBottom = '12px';
-      songDiv.innerHTML = '<label style="font-size:12px;color:#aaa;display:block;margin-bottom:4px;">🎵 ' + cat.label + ' Song URL</label>' +
-        '<input id="cfg-song-' + cat.id + '" class="config-input" type="text" placeholder="Paste GitHub raw URL for song">';
-      configCat.appendChild(songDiv);
-    });
-  }
-  buildConfigPanel();
+  // ── INIT ──────────────────────────────────────────────────────────────────
+  applyConfig();
+  buildMemoryCards();
 
-  G('setup-config').addEventListener('click', function(){
-    var panel = G('config-panel');
-    panel.classList.toggle('show');
-    if(panel.classList.contains('show')) panel.scrollIntoView({behavior:'smooth', block:'center'});
-    G('setup-panel').classList.remove('show');
-  });
-
-  G('btn-config-save').addEventListener('click', function(){
-    mediaStore = {};
-    CATS.forEach(function(cat){
-      var urls = G('cfg-' + cat.id).value.trim();
-      if(urls){
-        var urlArray = urls.split(',').map(function(u){ return u.trim(); }).filter(function(u){ return u; });
-        urlArray.forEach(function(url){
-          var isVideo = /\.(mp4|webm|mov|avi)$/i.test(url);
-          if(!mediaStore[cat.id]) mediaStore[cat.id] = [];
-          mediaStore[cat.id].push({url: url, isVideo: isVideo});
-        });
-        rebuildSlides(cat.id);
-      }
-      
-      var songUrl = G('cfg-song-' + cat.id).value.trim();
-      if(songUrl){
-        songUrls[cat.id] = songUrl;
-        songNames[cat.id] = 'GitHub Song';
-        var dot = G('sdot-' + cat.id);
-        if(dot) dot.style.display = 'inline';
-      }
-    });
-    buildSongList();
-    G('config-panel').classList.remove('show');
-    alert('✓ Media loaded from GitHub!');
-  });
-
-  G('btn-config-cancel').addEventListener('click', function(){
-    G('config-panel').classList.remove('show');
-  });
-
-  /* ── UPLOAD MEDIA ── */
-  G('btn-upload').addEventListener('click', function(){ G('fi-media').click(); });
-  G('fi-media').addEventListener('change', function(){
-    if(!this.files || !this.files.length) return;
-    pendingFiles = Array.from(this.files);
-    pendingIdx = 0; selectedCat = null;
-    openModal();
-    this.value = '';
-  });
-
-  function buildCatGrid(){
-    var grid = G('cat-grid');
-    grid.innerHTML = ''; selectedCat = null;
-    CATS.forEach(function(cat){
-      var btn = document.createElement('button');
-      btn.className = 'cat-btn';
-      btn.innerHTML = '<span class="ci">' + cat.icon + '</span><span>' + cat.label + '</span>';
-      btn.addEventListener('click', function(){
-        document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('sel'); });
-        btn.classList.add('sel');
-        selectedCat = cat.id;
-        G('m-err').textContent = '';
-      });
-      grid.appendChild(btn);
-    });
-  }
-
-  function openModal(){
-    buildCatGrid();
-    var f = pendingFiles[pendingIdx];
-    G('m-title').textContent = pendingFiles.length > 1 ? 'File ' + (pendingIdx + 1) + ' of ' + pendingFiles.length + ' — which memory?' : 'Which memory is this?';
-    G('m-sub').textContent = f.name;
-    G('m-err').textContent = '';
-    G('modal').classList.add('show');
-  }
-
-  G('m-ok').addEventListener('click', function(){
-    if(!selectedCat){ G('m-err').textContent = '⚠ Please pick a category!'; return; }
-    var f = pendingFiles[pendingIdx];
-    var url = URL.createObjectURL(f);
-    var isVideo = f.type.startsWith('video/');
-    if(!mediaStore[selectedCat]) mediaStore[selectedCat] = [];
-    mediaStore[selectedCat].push({url: url, isVideo: isVideo});
-    rebuildSlides(selectedCat);
-    pendingIdx++;
-    if(pendingIdx < pendingFiles.length) openModal();
-    else closeModal();
-  });
-  G('m-cancel').addEventListener('click', closeModal);
-  function closeModal(){
-    G('modal').classList.remove('show');
-    pendingFiles = []; pendingIdx = 0; selectedCat = null;
-  }
-
-  /* ── SONG MANAGER ── */
-  function buildSongList(){
-    var list = G('song-list');
-    list.innerHTML = '';
-    CATS.forEach(function(cat){
-      var has = !!songUrls[cat.id];
-      var row = document.createElement('div');
-      row.className = 'song-row';
-      row.innerHTML =
-        '<span class="s-emoji">' + cat.icon + '</span>' +
-        '<div class="s-info">' +
-          '<div class="s-cat">' + cat.label + '</div>' +
-          '<div class="s-file' + (has ? ' ok' : '') + '" id="sfn-' + cat.id + '">' + (has ? '🎵 ' + songNames[cat.id] : 'No song added yet') + '</div>' +
-        '</div>' +
-        '<div class="s-btns">' +
-          '<button class="s-btn' + (has ? ' ok' : '') + '" id="sadd-' + cat.id + '">' + (has ? '✓ Change' : '+ Add Song') + '</button>' +
-          (has ? '<button class="s-btn" id="splay-' + cat.id + '">▶ Test</button>' : '') +
-          (has ? '<button class="s-btn" style="color:#E50914" id="sdel-' + cat.id + '">✕ Remove</button>' : '') +
-        '</div>';
-      list.appendChild(row);
-
-      G('sadd-' + cat.id).addEventListener('click', function(){
-        songTarget = cat.id;
-        G('fi-song').value = '';
-        G('fi-song').click();
-      });
-      if(has){
-        G('splay-' + cat.id).addEventListener('click', function(){ playAudio(cat.id); });
-        G('sdel-' + cat.id).addEventListener('click', function(){
-          if(songUrls[cat.id]) URL.revokeObjectURL(songUrls[cat.id]);
-          delete songUrls[cat.id]; delete songNames[cat.id];
-          var dot = G('sdot-' + cat.id);
-          if(dot) dot.style.display = 'none';
-          buildSongList();
-        });
-      }
-    });
-  }
-  buildSongList();
-
-  G('fi-song').addEventListener('change', function(){
-    var file = this.files[0];
-    if(!file || !songTarget) return;
-    var cid = songTarget;
-    if(songUrls[cid]) URL.revokeObjectURL(songUrls[cid]);
-    songUrls[cid] = URL.createObjectURL(file);
-    songNames[cid] = file.name.replace(/\.[^.]+$/, '');
-    var dot = G('sdot-' + cid);
-    if(dot) dot.style.display = 'inline';
-    buildSongList();
-    songTarget = null;
-    this.value = '';
-  });
-
-  /* ── HERO BACKGROUND ── */
-  G('fi-bg').addEventListener('change', function(){
-    var file = this.files[0];
-    if(!file) return;
-    var url = URL.createObjectURL(file);
-    var img = G('hero-bg-img');
-    img.src = url;
-    img.style.display = 'block';
-    G('hero-bg').style.display = 'none';
-    G('hero-overlay').style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)';
-    this.value = '';
-  });
-
-  /* ── SETUP FAB ── */
-  G('setup-fab').addEventListener('click', function(){
-    var panel = G('setup-panel');
-    panel.classList.toggle('show');
-  });
-
-  G('setup-upload').addEventListener('click', function(){
-    var p = G('panel-upload');
-    p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
-    if(p.style.display === 'block') p.scrollIntoView({behavior:'smooth', block:'center'});
-    G('setup-panel').classList.remove('show');
-  });
-
-  G('setup-songs').addEventListener('click', function(){
-    var p = G('panel-songs');
-    p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
-    if(p.style.display === 'block') p.scrollIntoView({behavior:'smooth', block:'center'});
-    G('setup-panel').classList.remove('show');
-  });
-
-  G('setup-candle-song').addEventListener('click', function(){
-    G('fi-candle-song').click();
-    G('setup-panel').classList.remove('show');
-  });
-
-  G('fi-candle-song').addEventListener('change', function(){
-    var file = this.files[0];
-    if(!file) return;
-    if(candleSongUrl) URL.revokeObjectURL(candleSongUrl);
-    candleSongUrl = URL.createObjectURL(file);
-    this.value = '';
-    alert('🎵 Candle song set: ' + file.name.replace(/\.[^.]+$/,''));
-  });
-
-  G('setup-bg').addEventListener('click', function(){
-    G('fi-bg').click();
-    G('setup-panel').classList.remove('show');
-  });
-
-  document.addEventListener('click', function(e){
-    var fab = G('setup-fab');
-    var panel = G('setup-panel');
-    if(!fab.contains(e.target) && !panel.contains(e.target)){
-      panel.classList.remove('show');
-    }
-  });
-
-
-
-  /* ══════════════════════════════════════════════════════
-     BIRTHFLIX CONFIG — edit URLs here, save, re-upload
-     Files must be in your GitHub repo's src/ folder
-     Repo must be PUBLIC + GitHub Pages must be enabled
-  ══════════════════════════════════════════════════════ */
-  var CONFIG = {
-
-    candleSong: "",
-
-    heroBg: "",
-
-    memories: {
-      sleepy:       ["https://ankitha183.github.io/Happy_Birthday_Akka/src/sleepy.mp4"],
-      trips:        ["https://ankitha183.github.io/Happy_Birthday_Akka/src/trips.mp4"],
-      forever:      ["https://ankitha183.github.io/Happy_Birthday_Akka/src/forever%20moments.mp4"],
-      celebrations: ["https://ankitha183.github.io/Happy_Birthday_Akka/src/celebrations.mp4"],
-      posing:       ["https://ankitha183.github.io/Happy_Birthday_Akka/src/Poser.mp4"],
-      firstmeet:    ["https://ankitha183.github.io/Happy_Birthday_Akka/src/first%20meet.mp4"],
-      supersinger:  [
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/singer.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/singer1.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/singer2.mp4"
-      ],
-      vlogger: [
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/vlogger.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/vlogger1.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/vlogger3.mp4"
-      ],
-      ustogether: [
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
-        "https://ankitha183.github.io/Happy_Birthday_Akka/src/WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
-      ],
-      family: []
-    },
-
-    songs: {
-      sleepy:       "https://ankitha183.github.io/Happy_Birthday_Akka/src/Koyila(KoshalWorld%20(mp3cut.net).mp3",
-      trips:        "https://ankitha183.github.io/Happy_Birthday_Akka/src/Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
-      forever:      "https://ankitha183.github.io/Happy_Birthday_Akka/src/Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
-      celebrations: "https://ankitha183.github.io/Happy_Birthday_Akka/src/Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
-      posing:       "https://ankitha183.github.io/Happy_Birthday_Akka/src/Aval-Ulaghazhagi%20(mp3cut.net).mp3",
-      firstmeet:    "https://ankitha183.github.io/Happy_Birthday_Akka/src/Rathamaarey.mp3",
-      supersinger:  "",
-      vlogger:      "",
-      ustogether:   "",
-      family:       ""
-    }
-  };
-
-  /* ── Auto-load CONFIG into the app ── */
-  (function(){
-
-    /* Candle song */
-    if(CONFIG.candleSong) candleSongUrl = CONFIG.candleSong;
-
-    /* Hero background */
-    if(CONFIG.heroBg){
-      var img    = document.getElementById('hero-bg-img');
-      var bgDiv  = document.getElementById('hero-bg');
-      var ov     = document.getElementById('hero-overlay');
-      if(img)  { img.src = CONFIG.heroBg; img.style.display = 'block'; }
-      if(bgDiv){ bgDiv.style.display = 'none'; }
-      if(ov)   { ov.style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)'; }
-    }
-
-    /* Photos & videos into each category */
-    Object.keys(CONFIG.memories).forEach(function(catId){
-      var urls = CONFIG.memories[catId];
-      if(!urls || !urls.length) return;
-      urls.forEach(function(url){
-        if(!url) return;
-        var isVideo = /\.(mp4|mov|webm|ogg)$/i.test(url);
-        if(!mediaStore[catId]) mediaStore[catId] = [];
-        mediaStore[catId].push({ url: url, isVideo: isVideo });
-      });
-      rebuildSlides(catId);
-    });
-
-    /* Songs per category */
-    Object.keys(CONFIG.songs).forEach(function(catId){
-      var url = CONFIG.songs[catId];
-      if(!url) return;
-      songUrls[catId]  = url;
-      songNames[catId] = catId;
-      var dot = document.getElementById('sdot-' + catId);
-      if(dot) dot.style.display = 'inline';
-    });
-
-    /* Refresh song list UI */
-    if(typeof buildSongList === 'function') buildSongList();
-
-  })();
-
-})();
 });
 </script>
 </body></html>
