@@ -3,7 +3,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthflix — Happy Birthday Akka!</title>
+<title>Loveflix — Happy Birthday Akka❤️!</title>
 <link href="./Birthflix — Happy Birthday Akka!- final_files/css2" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -190,14 +190,13 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 /* CONFETTI */
 @keyframes cffall{0%{transform:translateY(-30px) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .cf{position:fixed;pointer-events:none;animation:cffall linear infinite;z-index:9000}
-</style>
-<style>
-.screen{display:none!important}
-.screen.active{display:flex!important;flex-direction:column!important}
-#s-login.active{align-items:center!important;justify-content:center!important;min-height:100vh!important}
-#s-candles.active{align-items:center!important;justify-content:center!important;min-height:100vh!important}
-#s-profile.active{align-items:center!important;justify-content:center!important;min-height:100vh!important}
-#s-main.active{display:block!important;min-height:100vh!important}
+
+/* GitHub Config Panel */
+.config-panel{margin:0 44px 28px;background:#181818;border:1px solid #282828;border-radius:10px;padding:26px 30px;display:none}
+.config-panel.show{display:block}
+.config-panel h4{font-size:16px;font-weight:700;margin-bottom:12px;color:#e5e5e5}
+.config-input{width:100%;background:#1e1e1e;border:1px solid #2a2a2a;color:#fff;font-size:12px;font-family:'Lato',sans-serif;padding:10px 14px;border-radius:6px;margin-bottom:10px;box-sizing:border-box}
+.config-input:focus{outline:none;border-color:#E50914}
 </style>
 </head>
 <body>
@@ -240,10 +239,20 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <button class="setup-fab" id="setup-fab">⚙ Setup</button>
 <div class="setup-panel" id="setup-panel">
   <div class="setup-panel-title">⚙ Setup Mode</div>
-  <button class="setup-item" id="setup-upload">🔗 Add Photos &amp; Videos</button>
-  <button class="setup-item" id="setup-songs">🎵 Add Songs</button>
+  <button class="setup-item" id="setup-config">📝 GitHub Config</button>
   <button class="setup-item" id="setup-candle-song">🎵 Set Candle Page Song</button>
   <button class="setup-item" id="setup-bg">🖼 Set Background Photo</button>
+</div>
+
+<!-- GitHub CONFIG PANEL -->
+<div class="config-panel" id="config-panel">
+  <h4>🔗 Load Media from GitHub</h4>
+  <p style="font-size:12px;color:#555;margin-bottom:12px;">Enter GitHub raw content URLs for photos, videos, and songs. Separate multiple URLs with commas.</p>
+  
+  <div id="config-categories"></div>
+  
+  <button class="red-btn" id="btn-config-save" style="width:100%;margin-top:12px;">✓ Save & Load</button>
+  <button class="red-btn" id="btn-config-cancel" style="width:100%;margin-top:8px;background:#555;">Cancel</button>
 </div>
 
 <!-- BOUQUET OVERLAY -->
@@ -265,17 +274,17 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <input type="file" id="fi-candle-song" accept="audio/*" style="display:none">
 
 <!-- ═══════════ SCREEN 1: LOGIN ═══════════ -->
-<div id="s-login" class="screen active">
+<div id="s-login" class="screen">
   <div class="nf-logo">BIRTHFLIX</div>
   <div class="nf-sub">Unlimited memories · Just for Akka</div>
   <div class="lock-box">
     <h2>Enter Passkey</h2>
     <p>Your exclusive birthday pass 🎂</p>
     <div class="pin-dots">
-      <div class="dot" id="d0"></div>
-      <div class="dot" id="d1"></div>
-      <div class="dot" id="d2"></div>
-      <div class="dot" id="d3"></div>
+      <div class="dot filled" id="d0"></div>
+      <div class="dot filled" id="d1"></div>
+      <div class="dot filled" id="d2"></div>
+      <div class="dot filled" id="d3"></div>
     </div>
     <div class="keypad">
       <button class="key" data-n="1">1</button>
@@ -368,7 +377,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <p class="who">Who's watching?</p>
   <div class="profiles">
     <div class="pitem profile-pick">
-      <div class="pav" style="background:linear-gradient(135deg,#7b0a14,#c41e3a)">😘</div>
+      <div class="pav" style="background:linear-gradient(135deg,#7b0a14,#c41e3a)">🎂😘</div>
       <span class="pname">Akka</span>
     </div>
     <div class="pitem profile-pick">
@@ -383,9 +392,9 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 </div>
 
 <!-- ═══════════ SCREEN 4: MAIN ═══════════ -->
-<div id="s-main" class="screen">
+<div id="s-main" class="screen active">
   <div class="nav">
-    <span class="nav-logo">BIRTHFLIX</span>
+    <span class="nav-logo">LOVEFLIX</span>
     <button class="nav-btn" id="btn-switch">← Switch Profile</button>
   </div>
 
@@ -438,80 +447,51 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <!-- MEMORY CARDS -->
   <div class="mem-section" id="mem-row">
     <p class="sec-title">📸 Our Memories Together</p>
-    <div class="cards-wrap" id="cards-wrap"></div>
-  </div>
-
-
-  <!-- UPLOAD PANEL -->
-  <div class="panel" id="panel-upload" style="display:none">
-    <h4>🎞 Add Photos &amp; Videos</h4>
-    <p style="font-size:12px;color:#666;margin-bottom:4px">Upload your files to GitHub repo → click the file → click <b style="color:#E50914">Raw</b> → copy that URL and paste below.</p>
-    <p style="font-size:11px;color:#444;margin-bottom:18px">Example: <span style="color:#888">https://raw.githubusercontent.com/yourname/akka-birthday/main/photo1.jpg</span></p>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <select id="url-cat" style="background:#222;border:1px solid #3a3a3a;color:#fff;font-size:13px;padding:10px 12px;border-radius:6px;font-family:Lato,sans-serif;cursor:pointer">
-          <option value="">Pick category...</option>
-          <option value="sleepy">😴 Sleepy Queen</option>
-          <option value="trips">✈️ Our Trips</option>
-          <option value="forever">🫂 Forever Moments</option>
-          <option value="celebrations">🥂 Celebrations</option>
-          <option value="posing">💅 Posing Queen</option>
-          <option value="firstmeet">🌟 Our First Meet</option>
-          <option value="supersinger">🎤 Super Singer</option>
-          <option value="vlogger">🎥 The Vlogger</option>
-          <option value="ustogether">🎬 Us Together</option>
-        </select>
-        <input id="url-media-input" type="text" placeholder="Paste GitHub Raw URL (jpg/png/mp4)..." style="flex:1;min-width:220px;background:#222;border:1px solid #3a3a3a;color:#fff;font-size:13px;padding:10px 14px;border-radius:6px;font-family:Lato,sans-serif;outline:none"/>
-        <button onclick="addMediaUrl()" style="background:#E50914;border:none;color:#fff;font-size:13px;font-weight:700;font-family:Lato,sans-serif;padding:11px 20px;border-radius:6px;cursor:pointer;white-space:nowrap">+ Add</button>
-      </div>
-      <div id="media-url-list" style="display:flex;flex-direction:column;gap:6px"></div>
+    <div class="cards-wrap" id="cards-wrap">
     </div>
   </div>
 
-  <!-- SONG PANEL -->
+  <!-- UPLOAD PANEL (hidden by default, shown via setup) -->
+  <div class="panel" id="panel-upload" style="display: none;">
+    <h4>🎞 Add Your Photos &amp; Videos</h4>
+    <p>Select files and assign them to a memory — they show as slideshow on the card and play in full when opened</p>
+    <button class="red-btn" id="btn-upload">📁 Choose Photos &amp; Videos</button>
+  </div>
+
+  <!-- SONG PANEL (hidden by default, shown via setup) -->
   <div class="panel" id="panel-songs" style="display:none">
     <h4>🎵 Add Songs to Each Memory</h4>
-    <p style="font-size:12px;color:#666;margin-bottom:4px">Upload MP3 files to GitHub → click file → click <b style="color:#E50914">Raw</b> → copy URL → paste below.</p>
-    <p style="font-size:11px;color:#444;margin-bottom:18px">Example: <span style="color:#888">https://raw.githubusercontent.com/yourname/akka-birthday/main/song1.mp3</span></p>
+    <p>Song plays automatically when that memory card is opened</p>
     <div id="song-list"></div>
-    <div style="margin-top:20px;padding-top:16px;border-top:1px solid #2a2a2a">
-      <div style="font-size:14px;font-weight:700;color:#e5e5e5;margin-bottom:10px">🕯️ Candle Page Background Song</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <input id="candle-song-url-input" type="text" placeholder="Paste GitHub Raw URL for candle song (mp3)..." style="flex:1;min-width:220px;background:#222;border:1px solid #3a3a3a;color:#fff;font-size:13px;padding:10px 14px;border-radius:6px;font-family:Lato,sans-serif;outline:none"/>
-        <button onclick="setCandleSongUrl()" style="background:#7c3aed;border:none;color:#fff;font-size:13px;font-weight:700;font-family:Lato,sans-serif;padding:11px 20px;border-radius:6px;cursor:pointer;white-space:nowrap">Set ✓</button>
-      </div>
-      <div id="candle-song-status" style="font-size:11px;color:#555;margin-top:8px"></div>
-    </div>
   </div>
 
   <div style="height:80px"></div>
 </div>
 
-
 <script>
-document.addEventListener('DOMContentLoaded', function(){
 (function(){
   var PASS = '1992';
   var pin = '';
+  var pendingFiles = [], pendingIdx = 0, selectedCat = null;
   var currentAudio = null;
-  var songUrls  = {};
+  var songUrls = {}, songNames = {};
   var mediaStore = {};
   var slideTimers = {};
   var lbCat = null, lbIdx = 0;
-  var candleSongUrl = null;
-  var candleAudio   = null;
-  var candlesBlown  = false;
+  var songTarget = null;
+  var candlesBlown = false;
 
   var CATS = [
-    {id:'sleepy',       label:'Sleepy Queen',    icon:'😴'},
-    {id:'trips',        label:'Our Trips',        icon:'✈️'},
-    {id:'forever',      label:'Forever Moments',  icon:'🫂'},
-    {id:'celebrations', label:'Celebrations',     icon:'🥂'},
-    {id:'posing',       label:'Posing Queen',     icon:'💅'},
-    {id:'firstmeet',    label:'Our First Meet',   icon:'🌟'},
-    {id:'supersinger',  label:'Super Singer',     icon:'🎤'},
-    {id:'vlogger',      label:'The Vlogger',      icon:'🎥'},
-    {id:'ustogether',   label:'Us Together',      icon:'🎬'}
+    {id:'sleepy',        label:'Sleepy Beauty',    icon:'😴'},
+    {id:'trips',         label:'Our Trips',        icon:'✈️'},
+    {id:'forever',       label:'Forever Moments',  icon:'🫂'},
+    {id:'celebrations',  label:'Celebrations',     icon:'🥂'},
+    {id:'posing',        label:'Posing Queen',     icon:'😂'},
+    {id:'firstmeet',     label:'Our First Meet',   icon:'🤗'},
+    {id:'supersinger',   label:'Super Singer',     icon:'🎤'},
+    {id:'vlogger',       label:'The Vlogger',      icon:'🎥'},
+    {id:'ustogether',    label:'Us Together',      icon:'😘'},
+    {id:'Family',        label:'Family',           icon:'❤️'},
   ];
 
   function G(id){ return document.getElementById(id); }
@@ -520,8 +500,6 @@ document.addEventListener('DOMContentLoaded', function(){
   function showScreen(id){
     document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
     G(id).classList.add('active');
-    var bc = G('btn-back-candles');
-    if(bc) bc.style.display = (id === 's-main') ? 'inline-block' : 'none';
   }
 
   /* ── PIN ── */
@@ -533,329 +511,469 @@ document.addEventListener('DOMContentLoaded', function(){
   function pressKey(n){
     if(pin.length >= 4) return;
     pin += n;
-    G('d'+(pin.length-1)).classList.add('filled');
+    G('d' + (pin.length - 1)).classList.add('filled');
     if(pin.length === 4) setTimeout(checkPin, 220);
   }
   function delKey(){
     if(!pin.length) return;
-    G('d'+(pin.length-1)).classList.remove('filled');
-    pin = pin.slice(0,-1);
+    G('d' + (pin.length - 1)).classList.remove('filled');
+    pin = pin.slice(0, -1);
     G('err').textContent = '';
   }
   function checkPin(){
     if(pin === PASS){
-      showScreen('s-candles');
-      playCandleSong();
+      showScreen('s-candles'); playCandleSong();
     } else {
       G('err').textContent = 'Wrong passkey — try again!';
       pin = '';
-      for(var i=0;i<4;i++) G('d'+i).classList.remove('filled');
+      for(var i = 0; i < 4; i++) G('d' + i).classList.remove('filled');
     }
   }
 
-  /* ── CANDLE SONG ── */
+  /* ── BLOW CANDLES ── */
+  var candleSongUrl = null;
+  var candleAudio = null;
+
   function playCandleSong(){
     if(!candleSongUrl) return;
     stopCandleAudio();
     candleAudio = new Audio(candleSongUrl);
     candleAudio.loop = true;
-    var p = candleAudio.play(); if(p) p.catch(function(){});
+    var p = candleAudio.play();
+    if(p) p.catch(function(){});
   }
   function stopCandleAudio(){
-    if(candleAudio){ candleAudio.pause(); candleAudio.currentTime=0; candleAudio=null; }
+    if(candleAudio){ candleAudio.pause(); candleAudio.currentTime = 0; candleAudio = null; }
   }
-  window.setCandleSongUrl = function(){
-    var inp = G('candle-song-url-input');
-    var url = inp ? inp.value.trim() : '';
-    if(!url){ alert('Please paste a GitHub Raw MP3 URL first!'); return; }
-    candleSongUrl = url;
-    var st = G('candle-song-status');
-    if(st) st.innerHTML = '<span style="color:#5ee7a0">✓ Candle song set!</span>';
-  };
 
-  /* ── BLOW CANDLES ── */
   G('blow-btn').addEventListener('click', function(){
     if(candlesBlown) return;
     candlesBlown = true;
-    ['f1','f2','f3'].forEach(function(id){ var g=G(id); if(g) g.classList.add('flame-hidden'); });
-    document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity='0'; });
+
+    ['f1','f2','f3'].forEach(function(id){
+      var g = G(id);
+      if(g) g.classList.add('flame-hidden');
+    });
+    document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity = '0'; });
+
     setTimeout(function(){
       G('blown-msg').classList.add('show');
       G('blow-btn').textContent = '🎉 Candles Blown!';
       G('blow-btn').classList.add('blown');
       launchConfetti();
     }, 400);
+
     setTimeout(function(){
       stopCandleAudio();
-      var bov=G('bouquet-ov'); if(bov) bov.classList.add('show');
+      showScreen('s-candles'); playCandleSong();
+      G('bouquet-ov').classList.add('show');
       launchConfetti();
       candlesBlown = false;
-      resetCandles();
+      ['f1','f2','f3'].forEach(function(id){
+        var g = G(id); if(g) g.classList.remove('flame-hidden');
+      });
+      document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity = ''; });
+      G('blown-msg').classList.remove('show');
+      G('blow-btn').textContent = '💨 Blow the Candles!';
+      G('blow-btn').classList.remove('blown');
     }, 2200);
   });
 
-  function resetCandles(){
-    ['f1','f2','f3'].forEach(function(id){ var g=G(id); if(g) g.classList.remove('flame-hidden'); });
-    document.querySelectorAll('.spk').forEach(function(s){ s.style.opacity=''; });
-    var bm=G('blown-msg'); if(bm) bm.classList.remove('show');
-    var bb=G('blow-btn');
-    if(bb){ bb.textContent='💨 Blow the Candles!'; bb.classList.remove('blown'); }
-  }
-
-  /* ── BOUQUET ── */
-  var bNext=G('bouquet-next');
-  if(bNext){ bNext.addEventListener('click', function(){
-    var bov=G('bouquet-ov'); if(bov) bov.classList.remove('show');
+  G('bouquet-next').addEventListener('click', function(){
+    G('bouquet-ov').classList.remove('show');
     showScreen('s-profile');
-  }); }
+  });
 
   /* ── PROFILES ── */
   document.querySelectorAll('.profile-pick').forEach(function(p){
     p.addEventListener('click', function(){ showScreen('s-main'); launchConfetti(); });
   });
   G('btn-switch').addEventListener('click', function(){ stopAudio(); showScreen('s-profile'); });
-
-  var bbc=G('btn-back-candles');
-  if(bbc){ bbc.addEventListener('click', function(){
-    stopAudio(); resetCandles();
-    var bov=G('bouquet-ov'); if(bov) bov.classList.remove('show');
-    showScreen('s-candles'); playCandleSong();
-  }); }
-
-  var bStory=G('btn-story');
-  if(bStory) bStory.addEventListener('click', function(){ G('mem-row').scrollIntoView({behavior:'smooth'}); });
+  G('btn-story').addEventListener('click', function(){ G('mem-row').scrollIntoView({behavior:'smooth'}); });
 
   /* ── CONFETTI ── */
   function launchConfetti(){
-    var cols=['#E50914','#ffd700','#ff6b9d','#5ee7c2','#7c3aed','#ffd166','#fff','#ff9f43'];
-    for(var i=0;i<70;i++){
-      var c=document.createElement('div'); c.className='cf';
-      var sz=(Math.random()*9+5)+'px';
-      c.style.cssText='left:'+Math.random()*100+'vw;top:0;width:'+sz+';height:'+sz+
-        ';background:'+cols[i%cols.length]+
-        ';animation-duration:'+(Math.random()*2.5+1.2).toFixed(1)+'s'+
-        ';animation-delay:'+(Math.random()*2).toFixed(1)+'s'+
-        ';border-radius:'+(Math.random()>.5?'50%':'2px');
+    var cols = ['#E50914','#ffd700','#ff6b9d','#5ee7c2','#7c3aed','#ffd166','#fff','#ff9f43'];
+    for(var i = 0; i < 70; i++){
+      var c = document.createElement('div'); c.className = 'cf';
+      var sz = (Math.random() * 9 + 5) + 'px';
+      c.style.cssText = 'left:' + Math.random() * 100 + 'vw;top:0;width:' + sz + ';height:' + sz +
+        ';background:' + cols[i % cols.length] +
+        ';animation-duration:' + (Math.random() * 2.5 + 1.2).toFixed(1) + 's' +
+        ';animation-delay:' + (Math.random() * 2).toFixed(1) + 's' +
+        ';border-radius:' + (Math.random() > .5 ? '50%' : '2px');
       document.body.appendChild(c);
     }
-    setTimeout(function(){ document.querySelectorAll('.cf').forEach(function(c){ c.remove(); }); },8000);
+    setTimeout(function(){ document.querySelectorAll('.cf').forEach(function(c){ c.remove(); }); }, 8000);
   }
 
   /* ── AUDIO ── */
   function playAudio(catId){
     stopAudio();
     if(!songUrls[catId]) return;
-    var a=new Audio(songUrls[catId]); a.loop=true;
-    var p=a.play(); if(p) p.catch(function(){});
-    currentAudio=a;
+    var a = new Audio(songUrls[catId]);
+    a.loop = true;
+    var p = a.play();
+    if(p) p.catch(function(){});
+    currentAudio = a;
+    var cat = CATS.find(function(c){ return c.id === catId; });
+    G('np-icon').textContent = cat ? cat.icon : '🎵';
     G('np').classList.add('show');
   }
   function stopAudio(){
-    if(currentAudio){ currentAudio.pause(); currentAudio.currentTime=0; currentAudio=null; }
+    if(currentAudio){ currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
     G('np').classList.remove('show');
   }
   G('np-stop').addEventListener('click', stopAudio);
 
-  /* ── ADD MEDIA URL ── */
-  window.addMediaUrl = function(){
-    var cat=G('url-cat').value;
-    var url=G('url-media-input').value.trim();
-    if(!cat){ alert('Please pick a category!'); return; }
-    if(!url){ alert('Please paste a URL!'); return; }
-    var isVideo=/\.(mp4|mov|webm|ogg)$/i.test(url);
-    if(!mediaStore[cat]) mediaStore[cat]=[];
-    mediaStore[cat].push({url:url, isVideo:isVideo});
-    rebuildSlides(cat);
-    // show in list
-    var list=G('media-url-list');
-    var row=document.createElement('div');
-    row.style.cssText='background:#1e1e1e;border:1px solid #2a2a2a;border-radius:6px;padding:9px 14px;font-size:12px;color:#aaa;display:flex;align-items:center;gap:10px;flex-wrap:wrap';
-    var catObj=CATS.find(function(c){ return c.id===cat; });
-    var shortUrl=url.length>60?url.slice(0,60)+'...':url;
-    row.innerHTML='<span>'+(catObj?catObj.icon:'')+'</span>'+
-      '<span style="flex:1;word-break:break-all;font-size:11px">'+shortUrl+'</span>'+
-      '<span style="color:#5ee7a0;flex-shrink:0">✓ Added</span>';
-    list.appendChild(row);
-    G('url-media-input').value='';
-    G('url-cat').value='';
-  };
+  /* ── BUILD MEMORY CARDS ── */
+  function buildMemoryCards(){
+    var wrap = G('cards-wrap');
+    wrap.innerHTML = '';
+    CATS.forEach(function(cat){
+      var gradients = {
+        'sleepy': 'linear-gradient(135deg,#0d0d2a,#1a1060)',
+        'trips': 'linear-gradient(135deg,#0a1a2e,#0e3a5c)',
+        'forever': 'linear-gradient(135deg,#2a0a1a,#6b1040)',
+        'celebrations': 'linear-gradient(135deg,#1a1000,#4a3000)',
+        'posing': 'linear-gradient(135deg,#2a0a2a,#6b0a6b)',
+        'firstmeet': 'linear-gradient(135deg,#0a2a1a,#0a5a2a)',
+        'supersinger': 'linear-gradient(135deg,#1a0a2e,#4a1080)',
+        'vlogger': 'linear-gradient(135deg,#0a0a1a,#1a0a3a)',
+        'ustogether': 'linear-gradient(135deg,#1a0a0a,#4a1a1a)'
+      };
+      var card = document.createElement('div');
+      card.className = 'mcard';
+      card.setAttribute('data-cat', cat.id);
+      card.setAttribute('data-label', cat.label);
+      card.style.background = gradients[cat.id] || 'linear-gradient(135deg,#0a0a1a,#1a0a3a)';
+      card.innerHTML = '<div class="mcard-inner"><span class="mcard-icon">' + cat.icon + '</span><span class="mcard-lbl">' + cat.label + '</span></div><span class="mcard-badge">Media</span><span class="mcard-sdot" id="sdot-' + cat.id + '">🎵</span><div class="mcard-ov">▶ Open</div>';
+      card.addEventListener('click', function(){
+        openLB(cat.id, cat.label);
+      });
+      wrap.appendChild(card);
+    });
+  }
+  buildMemoryCards();
 
   /* ── CARD SLIDESHOW ── */
   function rebuildSlides(catId){
-    var card=document.querySelector('.mcard[data-cat="'+catId+'"]');
+    var card = document.querySelector('.mcard[data-cat="' + catId + '"]');
     if(!card) return;
     card.querySelectorAll('.mcard-slide').forEach(function(e){ e.remove(); });
-    var items=mediaStore[catId]||[];
-    items.forEach(function(item,i){
+    var items = mediaStore[catId] || [];
+    items.forEach(function(item, i){
       var el;
       if(item.isVideo){
-        el=document.createElement('video');
-        el.src=item.url; el.muted=true; el.loop=true; el.playsInline=true;
+        el = document.createElement('video');
+        el.src = item.url; el.muted = true; el.loop = true; el.playsInline = true;
       } else {
-        el=document.createElement('img'); el.src=item.url; el.alt='';
+        el = document.createElement('img');
+        el.src = item.url; el.alt = '';
       }
-      el.className='mcard-slide'+(i===0?' show':'');
-      card.insertBefore(el,card.firstChild);
+      el.className = 'mcard-slide' + (i === 0 ? ' show' : '');
+      card.insertBefore(el, card.firstChild);
     });
-    if(items.length>0){
-      var inner=card.querySelector('.mcard-inner'); if(inner) inner.style.opacity='0';
+    if(items.length > 0){
+      var inner = card.querySelector('.mcard-inner');
+      if(inner) inner.style.opacity = '0';
     }
     startSlideshow(catId);
   }
+
   function startSlideshow(catId){
     if(slideTimers[catId]){ clearInterval(slideTimers[catId]); delete slideTimers[catId]; }
-    var items=mediaStore[catId]||[];
-    if(items.length<=1) return;
-    var idx=0;
-    slideTimers[catId]=setInterval(function(){
-      var card=document.querySelector('.mcard[data-cat="'+catId+'"]');
+    var items = mediaStore[catId] || [];
+    if(items.length <= 1) return;
+    var idx = 0;
+    slideTimers[catId] = setInterval(function(){
+      var card = document.querySelector('.mcard[data-cat="' + catId + '"]');
       if(!card) return;
-      var slides=card.querySelectorAll('.mcard-slide');
+      var slides = card.querySelectorAll('.mcard-slide');
       slides.forEach(function(s){ s.classList.remove('show'); });
-      idx=(idx+1)%slides.length;
+      idx = (idx + 1) % slides.length;
       if(slides[idx]) slides[idx].classList.add('show');
-    },2500);
+    }, 2500);
   }
 
   /* ── LIGHTBOX ── */
-  document.querySelectorAll('.mcard').forEach(function(card){
-    card.addEventListener('click',function(){
-      openLB(card.getAttribute('data-cat'),card.getAttribute('data-label'));
-    });
-  });
-  function openLB(catId,label){
-    lbCat=catId; lbIdx=0;
-    G('lb-title').textContent=label;
+  function openLB(catId, label){
+    lbCat = catId; lbIdx = 0;
+    G('lb-title').textContent = label;
     G('lb').classList.add('show');
     renderSlide();
     if(songUrls[catId]) playAudio(catId);
   }
+
   function renderSlide(){
-    var wrap=G('lb-wrap'); wrap.innerHTML='';
-    var items=mediaStore[lbCat]||[];
+    var wrap = G('lb-wrap');
+    wrap.innerHTML = '';
+    var items = mediaStore[lbCat] || [];
     if(!items.length){
-      var p=document.createElement('p');
-      p.style.cssText='color:#555;font-size:14px;text-align:center;padding:80px 20px;';
-      p.textContent='No photos added yet — paste URLs via ⚙ Setup!';
+      var p = document.createElement('p');
+      p.style.cssText = 'color:#555;font-size:14px;text-align:center;padding:80px 20px;';
+      p.textContent = 'No photos or videos added yet — use ⚙ Setup to add!';
       wrap.appendChild(p);
-      G('lb-count').textContent='';
-      G('lb-prev').disabled=true; G('lb-next').disabled=true; return;
+      G('lb-count').textContent = '';
+      G('lb-prev').disabled = true;
+      G('lb-next').disabled = true;
+      return;
     }
-    var item=items[lbIdx];
+    var item = items[lbIdx];
     if(item.isVideo){
-      var v=document.createElement('video');
-      v.src=item.url; v.controls=true; v.autoplay=true; v.playsInline=true;
-      v.style.cssText='max-width:90vw;max-height:64vh;border-radius:8px;';
+      var v = document.createElement('video');
+      v.src = item.url; v.controls = true; v.autoplay = true; v.playsInline = true;
+      v.style.cssText = 'max-width:90vw;max-height:64vh;border-radius:8px;';
       wrap.appendChild(v);
     } else {
-      var img=document.createElement('img'); img.src=item.url;
-      img.style.cssText='max-width:90vw;max-height:64vh;border-radius:8px;object-fit:contain;display:block;';
+      var img = document.createElement('img');
+      img.src = item.url;
+      img.style.cssText = 'max-width:90vw;max-height:64vh;border-radius:8px;object-fit:contain;display:block;';
       wrap.appendChild(img);
     }
-    G('lb-count').textContent=(lbIdx+1)+' / '+items.length;
-    G('lb-prev').disabled=(lbIdx===0);
-    G('lb-next').disabled=(lbIdx===items.length-1);
+    G('lb-count').textContent = (lbIdx + 1) + ' / ' + items.length;
+    G('lb-prev').disabled = (lbIdx === 0);
+    G('lb-next').disabled = (lbIdx === items.length - 1);
   }
-  G('lb-prev').addEventListener('click',function(){ if(lbIdx>0){ lbIdx--; renderSlide(); } });
-  G('lb-next').addEventListener('click',function(){
-    var items=mediaStore[lbCat]||[];
-    if(lbIdx<items.length-1){ lbIdx++; renderSlide(); }
+
+  G('lb-prev').addEventListener('click', function(){ if(lbIdx > 0){ lbIdx--; renderSlide(); } });
+  G('lb-next').addEventListener('click', function(){
+    var items = mediaStore[lbCat] || [];
+    if(lbIdx < items.length - 1){ lbIdx++; renderSlide(); }
   });
-  G('lb-x').addEventListener('click',function(){
-    G('lb').classList.remove('show'); G('lb-wrap').innerHTML=''; stopAudio();
+  G('lb-x').addEventListener('click', function(){
+    G('lb').classList.remove('show');
+    G('lb-wrap').innerHTML = '';
+    stopAudio();
   });
+
+  /* ── GITHUB CONFIG ── */
+  function buildConfigPanel(){
+    var configCat = G('config-categories');
+    configCat.innerHTML = '';
+    CATS.forEach(function(cat){
+      var div = document.createElement('div');
+      div.style.marginBottom = '12px';
+      div.innerHTML = '<label style="font-size:12px;color:#aaa;display:block;margin-bottom:4px;">' + cat.icon + ' ' + cat.label + ' (Photos/Videos)</label>' +
+        '<textarea id="cfg-' + cat.id + '" class="config-input" rows="2" placeholder="Paste GitHub raw URLs separated by commas"></textarea>';
+      configCat.appendChild(div);
+      
+      var songDiv = document.createElement('div');
+      songDiv.style.marginBottom = '12px';
+      songDiv.innerHTML = '<label style="font-size:12px;color:#aaa;display:block;margin-bottom:4px;">🎵 ' + cat.label + ' Song URL</label>' +
+        '<input id="cfg-song-' + cat.id + '" class="config-input" type="text" placeholder="Paste GitHub raw URL for song">';
+      configCat.appendChild(songDiv);
+    });
+  }
+  buildConfigPanel();
+
+  G('setup-config').addEventListener('click', function(){
+    var panel = G('config-panel');
+    panel.classList.toggle('show');
+    if(panel.classList.contains('show')) panel.scrollIntoView({behavior:'smooth', block:'center'});
+    G('setup-panel').classList.remove('show');
+  });
+
+  G('btn-config-save').addEventListener('click', function(){
+    mediaStore = {};
+    CATS.forEach(function(cat){
+      var urls = G('cfg-' + cat.id).value.trim();
+      if(urls){
+        var urlArray = urls.split(',').map(function(u){ return u.trim(); }).filter(function(u){ return u; });
+        urlArray.forEach(function(url){
+          var isVideo = /\.(mp4|webm|mov|avi)$/i.test(url);
+          if(!mediaStore[cat.id]) mediaStore[cat.id] = [];
+          mediaStore[cat.id].push({url: url, isVideo: isVideo});
+        });
+        rebuildSlides(cat.id);
+      }
+      
+      var songUrl = G('cfg-song-' + cat.id).value.trim();
+      if(songUrl){
+        songUrls[cat.id] = songUrl;
+        songNames[cat.id] = 'GitHub Song';
+        var dot = G('sdot-' + cat.id);
+        if(dot) dot.style.display = 'inline';
+      }
+    });
+    buildSongList();
+    G('config-panel').classList.remove('show');
+    alert('✓ Media loaded from GitHub!');
+  });
+
+  G('btn-config-cancel').addEventListener('click', function(){
+    G('config-panel').classList.remove('show');
+  });
+
+  /* ── UPLOAD MEDIA ── */
+  G('btn-upload').addEventListener('click', function(){ G('fi-media').click(); });
+  G('fi-media').addEventListener('change', function(){
+    if(!this.files || !this.files.length) return;
+    pendingFiles = Array.from(this.files);
+    pendingIdx = 0; selectedCat = null;
+    openModal();
+    this.value = '';
+  });
+
+  function buildCatGrid(){
+    var grid = G('cat-grid');
+    grid.innerHTML = ''; selectedCat = null;
+    CATS.forEach(function(cat){
+      var btn = document.createElement('button');
+      btn.className = 'cat-btn';
+      btn.innerHTML = '<span class="ci">' + cat.icon + '</span><span>' + cat.label + '</span>';
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('sel'); });
+        btn.classList.add('sel');
+        selectedCat = cat.id;
+        G('m-err').textContent = '';
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  function openModal(){
+    buildCatGrid();
+    var f = pendingFiles[pendingIdx];
+    G('m-title').textContent = pendingFiles.length > 1 ? 'File ' + (pendingIdx + 1) + ' of ' + pendingFiles.length + ' — which memory?' : 'Which memory is this?';
+    G('m-sub').textContent = f.name;
+    G('m-err').textContent = '';
+    G('modal').classList.add('show');
+  }
+
+  G('m-ok').addEventListener('click', function(){
+    if(!selectedCat){ G('m-err').textContent = '⚠ Please pick a category!'; return; }
+    var f = pendingFiles[pendingIdx];
+    var url = URL.createObjectURL(f);
+    var isVideo = f.type.startsWith('video/');
+    if(!mediaStore[selectedCat]) mediaStore[selectedCat] = [];
+    mediaStore[selectedCat].push({url: url, isVideo: isVideo});
+    rebuildSlides(selectedCat);
+    pendingIdx++;
+    if(pendingIdx < pendingFiles.length) openModal();
+    else closeModal();
+  });
+  G('m-cancel').addEventListener('click', closeModal);
+  function closeModal(){
+    G('modal').classList.remove('show');
+    pendingFiles = []; pendingIdx = 0; selectedCat = null;
+  }
 
   /* ── SONG MANAGER ── */
   function buildSongList(){
-    var list=G('song-list'); if(!list) return;
-    list.innerHTML='';
+    var list = G('song-list');
+    list.innerHTML = '';
     CATS.forEach(function(cat){
-      var has=!!songUrls[cat.id];
-      var row=document.createElement('div');
-      row.className='song-row';
-      row.innerHTML=
-        '<span class="s-emoji">'+cat.icon+'</span>'+
-        '<div class="s-info" style="flex:1">'+
-          '<div class="s-cat">'+cat.label+'</div>'+
-          '<div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center">'+
-            '<input id="surl-'+cat.id+'" type="text" placeholder="Paste GitHub Raw MP3 URL..." '+
-              'style="flex:1;min-width:160px;background:#111;border:1px solid #333;color:#fff;'+
-              'font-size:11px;padding:7px 10px;border-radius:5px;font-family:Lato,sans-serif;outline:none" '+
-              'value="'+(songUrls[cat.id]||'')+'"/>'+
-            '<button onclick="setSongUrl(''+cat.id+'')" style="background:#E50914;border:none;color:#fff;'+
-              'font-size:11px;font-weight:700;font-family:Lato,sans-serif;padding:7px 14px;border-radius:5px;cursor:pointer">Set ✓</button>'+
-            (has?'<button onclick="testSong(''+cat.id+'')" style="background:#1e1e1e;border:1px solid #333;'+
-              'color:#ccc;font-size:11px;font-family:Lato,sans-serif;padding:7px 12px;border-radius:5px;cursor:pointer">▶ Test</button>':'')+
-            (has?'<button onclick="removeSong(''+cat.id+'')" style="background:transparent;border:none;'+
-              'color:#E50914;font-size:13px;cursor:pointer">✕</button>':'')+
-          '</div>'+
-          '<div style="font-size:10px;color:'+(has?'#5ee7a0':'#444')+';margin-top:5px">'+
-            (has?'🎵 Song set':'No song yet')+
-          '</div>'+
+      var has = !!songUrls[cat.id];
+      var row = document.createElement('div');
+      row.className = 'song-row';
+      row.innerHTML =
+        '<span class="s-emoji">' + cat.icon + '</span>' +
+        '<div class="s-info">' +
+          '<div class="s-cat">' + cat.label + '</div>' +
+          '<div class="s-file' + (has ? ' ok' : '') + '" id="sfn-' + cat.id + '">' + (has ? '🎵 ' + songNames[cat.id] : 'No song added yet') + '</div>' +
+        '</div>' +
+        '<div class="s-btns">' +
+          '<button class="s-btn' + (has ? ' ok' : '') + '" id="sadd-' + cat.id + '">' + (has ? '✓ Change' : '+ Add Song') + '</button>' +
+          (has ? '<button class="s-btn" id="splay-' + cat.id + '">▶ Test</button>' : '') +
+          (has ? '<button class="s-btn" style="color:#E50914" id="sdel-' + cat.id + '">✕ Remove</button>' : '') +
         '</div>';
       list.appendChild(row);
+
+      G('sadd-' + cat.id).addEventListener('click', function(){
+        songTarget = cat.id;
+        G('fi-song').value = '';
+        G('fi-song').click();
+      });
+      if(has){
+        G('splay-' + cat.id).addEventListener('click', function(){ playAudio(cat.id); });
+        G('sdel-' + cat.id).addEventListener('click', function(){
+          if(songUrls[cat.id]) URL.revokeObjectURL(songUrls[cat.id]);
+          delete songUrls[cat.id]; delete songNames[cat.id];
+          var dot = G('sdot-' + cat.id);
+          if(dot) dot.style.display = 'none';
+          buildSongList();
+        });
+      }
     });
   }
-  window.setSongUrl=function(catId){
-    var inp=G('surl-'+catId);
-    var url=inp?inp.value.trim():'';
-    if(!url){ alert('Paste a GitHub Raw MP3 URL first!'); return; }
-    songUrls[catId]=url;
-    var dot=G('sdot-'+catId); if(dot) dot.style.display='inline';
-    buildSongList();
-  };
-  window.testSong=function(catId){ playAudio(catId); };
-  window.removeSong=function(catId){
-    delete songUrls[catId];
-    var dot=G('sdot-'+catId); if(dot) dot.style.display='none';
-    buildSongList();
-  };
   buildSongList();
 
+  G('fi-song').addEventListener('change', function(){
+    var file = this.files[0];
+    if(!file || !songTarget) return;
+    var cid = songTarget;
+    if(songUrls[cid]) URL.revokeObjectURL(songUrls[cid]);
+    songUrls[cid] = URL.createObjectURL(file);
+    songNames[cid] = file.name.replace(/\.[^.]+$/, '');
+    var dot = G('sdot-' + cid);
+    if(dot) dot.style.display = 'inline';
+    buildSongList();
+    songTarget = null;
+    this.value = '';
+  });
+
   /* ── HERO BACKGROUND ── */
-  var fiBg=G('fi-bg');
-  if(fiBg){ fiBg.addEventListener('change',function(){
-    var file=this.files[0]; if(!file) return;
-    var url=URL.createObjectURL(file);
-    var img=G('hero-bg-img');
-    if(img){ img.src=url; img.style.display='block'; }
-    var bgDiv=G('hero-bg'); if(bgDiv) bgDiv.style.display='none';
-    var ov=G('hero-overlay');
-    if(ov) ov.style.background='linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)';
-    this.value='';
-  }); }
+  G('fi-bg').addEventListener('change', function(){
+    var file = this.files[0];
+    if(!file) return;
+    var url = URL.createObjectURL(file);
+    var img = G('hero-bg-img');
+    img.src = url;
+    img.style.display = 'block';
+    G('hero-bg').style.display = 'none';
+    G('hero-overlay').style.background = 'linear-gradient(to right,rgba(0,0,0,.85) 30%,rgba(0,0,0,.25) 70%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 60%)';
+    this.value = '';
+  });
 
   /* ── SETUP FAB ── */
-  G('setup-fab').addEventListener('click',function(e){
-    e.stopPropagation();
-    G('setup-panel').classList.toggle('show');
+  G('setup-fab').addEventListener('click', function(){
+    var panel = G('setup-panel');
+    panel.classList.toggle('show');
   });
-  G('setup-upload').addEventListener('click',function(){
-    var p=G('panel-upload');
-    p.style.display=(p.style.display==='none'||!p.style.display)?'block':'none';
-    if(p.style.display==='block') p.scrollIntoView({behavior:'smooth',block:'center'});
+
+  G('setup-upload').addEventListener('click', function(){
+    var p = G('panel-upload');
+    p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
+    if(p.style.display === 'block') p.scrollIntoView({behavior:'smooth', block:'center'});
     G('setup-panel').classList.remove('show');
   });
-  G('setup-songs').addEventListener('click',function(){
-    var p=G('panel-songs');
-    p.style.display=(p.style.display==='none'||!p.style.display)?'block':'none';
-    if(p.style.display==='block') p.scrollIntoView({behavior:'smooth',block:'center'});
+
+  G('setup-songs').addEventListener('click', function(){
+    var p = G('panel-songs');
+    p.style.display = (p.style.display === 'none' || p.style.display === '') ? 'block' : 'none';
+    if(p.style.display === 'block') p.scrollIntoView({behavior:'smooth', block:'center'});
     G('setup-panel').classList.remove('show');
   });
-  var setupBg=G('setup-bg');
-  if(setupBg) setupBg.addEventListener('click',function(){
-    if(fiBg) fiBg.click();
+
+  G('setup-candle-song').addEventListener('click', function(){
+    G('fi-candle-song').click();
     G('setup-panel').classList.remove('show');
   });
-  document.addEventListener('click',function(e){
-    var fab=G('setup-fab'); var panel=G('setup-panel');
-    if(fab&&panel&&!fab.contains(e.target)&&!panel.contains(e.target)){
+
+  G('fi-candle-song').addEventListener('change', function(){
+    var file = this.files[0];
+    if(!file) return;
+    if(candleSongUrl) URL.revokeObjectURL(candleSongUrl);
+    candleSongUrl = URL.createObjectURL(file);
+    this.value = '';
+    alert('🎵 Candle song set: ' + file.name.replace(/\.[^.]+$/,''));
+  });
+
+  G('setup-bg').addEventListener('click', function(){
+    G('fi-bg').click();
+    G('setup-panel').classList.remove('show');
+  });
+
+  document.addEventListener('click', function(e){
+    var fab = G('setup-fab');
+    var panel = G('setup-panel');
+    if(!fab.contains(e.target) && !panel.contains(e.target)){
       panel.classList.remove('show');
     }
   });
 
 })();
-});
 </script>
-</body>
-</html>
+
+</body></html>
