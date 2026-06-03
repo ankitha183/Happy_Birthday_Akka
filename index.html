@@ -3,7 +3,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loveflix — Happy Birthday Akka❤️!</title>
+<title>Birthflix — Happy Birthday Akka!</title>
 <link href="./Birthflix — Happy Birthday Akka!- final_files/css2" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -190,13 +190,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 /* CONFETTI */
 @keyframes cffall{0%{transform:translateY(-30px) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .cf{position:fixed;pointer-events:none;animation:cffall linear infinite;z-index:9000}
-
-/* GitHub Config Panel */
-.config-panel{margin:0 44px 28px;background:#181818;border:1px solid #282828;border-radius:10px;padding:26px 30px;display:none}
-.config-panel.show{display:block}
-.config-panel h4{font-size:16px;font-weight:700;margin-bottom:12px;color:#e5e5e5}
-.config-input{width:100%;background:#1e1e1e;border:1px solid #2a2a2a;color:#fff;font-size:12px;font-family:'Lato',sans-serif;padding:10px 14px;border-radius:6px;margin-bottom:10px;box-sizing:border-box}
-.config-input:focus{outline:none;border-color:#E50914}
 </style>
 </head>
 <body>
@@ -239,20 +232,10 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <button class="setup-fab" id="setup-fab">⚙ Setup</button>
 <div class="setup-panel" id="setup-panel">
   <div class="setup-panel-title">⚙ Setup Mode</div>
-  <button class="setup-item" id="setup-config">📝 GitHub Config</button>
+  <button class="setup-item" id="setup-upload">📁 Upload Photos &amp; Videos</button>
+  <button class="setup-item" id="setup-songs">🎵 Manage Songs</button>
   <button class="setup-item" id="setup-candle-song">🎵 Set Candle Page Song</button>
   <button class="setup-item" id="setup-bg">🖼 Set Background Photo</button>
-</div>
-
-<!-- GitHub CONFIG PANEL -->
-<div class="config-panel" id="config-panel">
-  <h4>🔗 Load Media from GitHub</h4>
-  <p style="font-size:12px;color:#555;margin-bottom:12px;">Enter GitHub raw content URLs for photos, videos, and songs. Separate multiple URLs with commas.</p>
-  
-  <div id="config-categories"></div>
-  
-  <button class="red-btn" id="btn-config-save" style="width:100%;margin-top:12px;">✓ Save & Load</button>
-  <button class="red-btn" id="btn-config-cancel" style="width:100%;margin-top:8px;background:#555;">Cancel</button>
 </div>
 
 <!-- BOUQUET OVERLAY -->
@@ -274,17 +257,17 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <input type="file" id="fi-candle-song" accept="audio/*" style="display:none">
 
 <!-- ═══════════ SCREEN 1: LOGIN ═══════════ -->
-<div id="s-login" class="screen">
+<div id="s-login" class="screen active">
   <div class="nf-logo">BIRTHFLIX</div>
   <div class="nf-sub">Unlimited memories · Just for Akka</div>
   <div class="lock-box">
     <h2>Enter Passkey</h2>
     <p>Your exclusive birthday pass 🎂</p>
     <div class="pin-dots">
-      <div class="dot filled" id="d0"></div>
-      <div class="dot filled" id="d1"></div>
-      <div class="dot filled" id="d2"></div>
-      <div class="dot filled" id="d3"></div>
+      <div class="dot" id="d0"></div>
+      <div class="dot" id="d1"></div>
+      <div class="dot" id="d2"></div>
+      <div class="dot" id="d3"></div>
     </div>
     <div class="keypad">
       <button class="key" data-n="1">1</button>
@@ -377,7 +360,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <p class="who">Who's watching?</p>
   <div class="profiles">
     <div class="pitem profile-pick">
-      <div class="pav" style="background:linear-gradient(135deg,#7b0a14,#c41e3a)">🎂😘</div>
+      <div class="pav" style="background:linear-gradient(135deg,#7b0a14,#c41e3a)">🎂</div>
       <span class="pname">Akka</span>
     </div>
     <div class="pitem profile-pick">
@@ -392,9 +375,9 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 </div>
 
 <!-- ═══════════ SCREEN 4: MAIN ═══════════ -->
-<div id="s-main" class="screen active">
+<div id="s-main" class="screen">
   <div class="nav">
-    <span class="nav-logo">LOVEFLIX</span>
+    <span class="nav-logo">BIRTHFLIX</span>
     <button class="nav-btn" id="btn-switch">← Switch Profile</button>
   </div>
 
@@ -447,8 +430,7 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   <!-- MEMORY CARDS -->
   <div class="mem-section" id="mem-row">
     <p class="sec-title">📸 Our Memories Together</p>
-    <div class="cards-wrap" id="cards-wrap">
-    </div>
+    <div class="cards-wrap" id="cards-wrap"></div>
   </div>
 
   <!-- UPLOAD PANEL (hidden by default, shown via setup) -->
@@ -482,16 +464,15 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
   var candlesBlown = false;
 
   var CATS = [
-    {id:'sleepy',        label:'Sleepy Beauty',    icon:'😴'},
+    {id:'sleepy',        label:'Sleepy Queen',    icon:'😴'},
     {id:'trips',         label:'Our Trips',        icon:'✈️'},
     {id:'forever',       label:'Forever Moments',  icon:'🫂'},
     {id:'celebrations',  label:'Celebrations',     icon:'🥂'},
-    {id:'posing',        label:'Posing Queen',     icon:'😂'},
-    {id:'firstmeet',     label:'Our First Meet',   icon:'🤗'},
+    {id:'posing',        label:'Posing Queen',     icon:'💅'},
+    {id:'firstmeet',     label:'Our First Meet',   icon:'🌟'},
     {id:'supersinger',   label:'Super Singer',     icon:'🎤'},
     {id:'vlogger',       label:'The Vlogger',      icon:'🎥'},
-    {id:'ustogether',    label:'Us Together',      icon:'😘'},
-    {id:'Family',        label:'Family',           icon:'❤️'},
+    {id:'ustogether',    label:'Us Together',      icon:'🎬'}
   ];
 
   function G(id){ return document.getElementById(id); }
@@ -745,64 +726,6 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
     G('lb').classList.remove('show');
     G('lb-wrap').innerHTML = '';
     stopAudio();
-  });
-
-  /* ── GITHUB CONFIG ── */
-  function buildConfigPanel(){
-    var configCat = G('config-categories');
-    configCat.innerHTML = '';
-    CATS.forEach(function(cat){
-      var div = document.createElement('div');
-      div.style.marginBottom = '12px';
-      div.innerHTML = '<label style="font-size:12px;color:#aaa;display:block;margin-bottom:4px;">' + cat.icon + ' ' + cat.label + ' (Photos/Videos)</label>' +
-        '<textarea id="cfg-' + cat.id + '" class="config-input" rows="2" placeholder="Paste GitHub raw URLs separated by commas"></textarea>';
-      configCat.appendChild(div);
-      
-      var songDiv = document.createElement('div');
-      songDiv.style.marginBottom = '12px';
-      songDiv.innerHTML = '<label style="font-size:12px;color:#aaa;display:block;margin-bottom:4px;">🎵 ' + cat.label + ' Song URL</label>' +
-        '<input id="cfg-song-' + cat.id + '" class="config-input" type="text" placeholder="Paste GitHub raw URL for song">';
-      configCat.appendChild(songDiv);
-    });
-  }
-  buildConfigPanel();
-
-  G('setup-config').addEventListener('click', function(){
-    var panel = G('config-panel');
-    panel.classList.toggle('show');
-    if(panel.classList.contains('show')) panel.scrollIntoView({behavior:'smooth', block:'center'});
-    G('setup-panel').classList.remove('show');
-  });
-
-  G('btn-config-save').addEventListener('click', function(){
-    mediaStore = {};
-    CATS.forEach(function(cat){
-      var urls = G('cfg-' + cat.id).value.trim();
-      if(urls){
-        var urlArray = urls.split(',').map(function(u){ return u.trim(); }).filter(function(u){ return u; });
-        urlArray.forEach(function(url){
-          var isVideo = /\.(mp4|webm|mov|avi)$/i.test(url);
-          if(!mediaStore[cat.id]) mediaStore[cat.id] = [];
-          mediaStore[cat.id].push({url: url, isVideo: isVideo});
-        });
-        rebuildSlides(cat.id);
-      }
-      
-      var songUrl = G('cfg-song-' + cat.id).value.trim();
-      if(songUrl){
-        songUrls[cat.id] = songUrl;
-        songNames[cat.id] = 'GitHub Song';
-        var dot = G('sdot-' + cat.id);
-        if(dot) dot.style.display = 'inline';
-      }
-    });
-    buildSongList();
-    G('config-panel').classList.remove('show');
-    alert('✓ Media loaded from GitHub!');
-  });
-
-  G('btn-config-cancel').addEventListener('click', function(){
-    G('config-panel').classList.remove('show');
   });
 
   /* ── UPLOAD MEDIA ── */
