@@ -474,75 +474,85 @@ body{background:#000;font-family:'Lato',sans-serif;color:#fff;min-height:100vh;o
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 
-/* ══════════════════════════════════════════════
-   BIRTHFLIX CONFIG — all URLs via jsDelivr CDN
-   (no CORS issues, works on GitHub Pages)
-══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════
+   BIRTHFLIX CONFIG
+   
+   IMPORTANT: Your repo must be PUBLIC on GitHub.
+   
+   URL FORMAT — use GitHub Pages URL (most reliable for media):
+   https://ankitha183.github.io/Happy_Birthday_Akka/src/filename.mp4
+   
+   If GitHub Pages is not enabled, use jsDelivr:
+   https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/filename.mp4
+══════════════════════════════════════════════════════════ */
+
+var BASE = "https://ankitha183.github.io/Happy_Birthday_Akka/src/";
+var BASE2 = "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/";
+
 var CONFIG = {
 
-  candleSong: "",   /* paste CDN mp3 URL here if needed */
+  candleSong: "",
 
-  heroBg: "",       /* paste CDN image URL here if needed */
+  heroBg: "",
 
   memories: {
     sleepy: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/sleepy.mp4"
+      BASE + "sleepy.mp4"
     ],
     trips: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/trips.mp4"
+      BASE + "trips.mp4"
     ],
     forever: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/forever%20moments.mp4"
+      BASE + "forever%20moments.mp4"
     ],
     celebrations: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/celebrations.mp4"
+      BASE + "celebrations.mp4"
     ],
     posing: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Poser.mp4"
+      BASE + "Poser.mp4"
     ],
     firstmeet: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/first%20meet.mp4"
+      BASE + "first%20meet.mp4"
     ],
     supersinger: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/singer.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/singer1.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/singer2.mp4"
+      BASE + "singer.mp4",
+      "https://ankitha183.github.io/Happy_Birthday_Akka/singer1.mp4",
+      "https://ankitha183.github.io/Happy_Birthday_Akka/singer2.mp4"
     ],
     vlogger: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/vlogger.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/vlogger1.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/vlogger3.mp4"
+      BASE + "vlogger.mp4",
+      BASE + "vlogger1.mp4",
+      BASE + "vlogger3.mp4"
     ],
     ustogether: [
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
-      "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2014.07.35%20-%20Copy.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.15.24.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.16.35%20-%20Copy.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.16.45.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.17.00.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.17.30.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.17.45.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.23.47.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.23.50.mp4",
+      BASE + "WhatsApp%20Video%202026-05-31%20at%2023.30.08.mp4"
     ],
-    family: [],
+    family: []
   },
 
   songs: {
-    sleepy: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Koyila(KoshalWorld%20(mp3cut.net).mp3",
-    trips: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
-    forever: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
-    celebrations: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
-    posing: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Aval-Ulaghazhagi%20(mp3cut.net).mp3",
-    firstmeet: "https://cdn.jsdelivr.net/gh/ankitha183/Happy_Birthday_Akka@main/src/Rathamaarey.mp3",
-    supersinger: "",
-    vlogger: "",
-    ustogether: "",
-    family: "",
+    sleepy:       BASE + "Koyila(KoshalWorld%20(mp3cut.net).mp3",
+    trips:        BASE + "Avicii_-_The_Nights_Felix_Jaehn_Remix_Music_ELECTRO_2014_(mp3%20(mp3cut.net).mp3",
+    forever:      BASE + "Mark%20Ambor-%20Belong%20Together%20(mp3cut.net).mp3",
+    celebrations: BASE + "Donna_Lewis_-_I_love_you_allways_forever_(mp3%20(mp3cut.net).mp3",
+    posing:       BASE + "Aval-Ulaghazhagi%20(mp3cut.net).mp3",
+    firstmeet:    BASE + "Rathamaarey.mp3",
+    supersinger:  "",
+    vlogger:      "",
+    ustogether:   "",
+    family:       ""
   }
 
 };
-/* ══════════════════════════════ END CONFIG ══════════════════════════════ */
 
 
 (function(){
